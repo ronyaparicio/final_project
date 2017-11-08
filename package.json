@@ -20,6 +20,10 @@
   },
   "main": "index.js",
   "repository": "https://github.com/ronyaparicio/final_project.git",
+<<<<<<< HEAD
   "author": "Burke Simmons <burkesimmons@gmail.com>",
+=======
+  "author": "Martin Perez <martinperezsh@gmail.com>",
+>>>>>>> f8c52a7b4882c2a31d7e1bf6ba38faf13aa61c11
   "license": "MIT"
 }
