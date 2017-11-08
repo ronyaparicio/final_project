@@ -13,9 +13,14 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
-    "start": "node server.js",
+    // change start to this
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/ronyaparicio/final_project.git",
+  "author": "Martin Perez <martinperezsh@gmail.com>",
+  "license": "MIT"
 }
