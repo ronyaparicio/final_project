@@ -7,7 +7,7 @@ const path = require('path');
 const app = express();
 
 const routes = require("./controllers/controller.js");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
