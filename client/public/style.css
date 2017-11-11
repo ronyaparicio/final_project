@@ -1,0 +1,12 @@
+h3 {
+	text-align: center;
+}
+
+.carousel {
+	/*height: 150px;
+	width: auto;*/
+}
+
+.carousel-item {
+	margin-top: -100px;
+}
