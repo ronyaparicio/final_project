@@ -1,9 +1,29 @@
 import React, { Component } from "react";
 
 class Welcome extends Component {
+
+    state = {
+        name: [],
+        lastname: "",
+        email: ""
+    };
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
+    handleFormSubmit = event => {
+        event.preventDefault();
+      
+    };
+
+
     render() {
         return (
             <div>
+
             	<nav>
     				<div className="nav-wrapper">
       					<a href="#" className="brand-logo center">Logo</a>
@@ -89,6 +109,10 @@ class Welcome extends Component {
 			        </div>
         </footer>
  			</div>	
+
+                
+            </div>
+
         )
     }
 
