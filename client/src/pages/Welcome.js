@@ -2,9 +2,29 @@ import React, { Component } from "react";
 import Footer from "../components/Footer"
 
 class Welcome extends Component {
+
+    state = {
+        name: [],
+        lastname: "",
+        email: ""
+    };
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
+    handleFormSubmit = event => {
+        event.preventDefault();
+      
+    };
+
+
     render() {
         return (
             <div>
+
             	<nav>
     				<div className="nav-wrapper">
       					<a href="#" className="brand-logo center"><img src="../images/logo.png" alt="logo" /></a>
@@ -66,6 +86,10 @@ class Welcome extends Component {
 
 			    <Footer />
  			</div>	
+
+                
+            </div>
+
         )
     }
 
