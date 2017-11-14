@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../utils/API"
 
 class Welcome extends Component {
 
@@ -17,7 +18,14 @@ class Welcome extends Component {
         });
     };
     handleFormSubmit = event => {
-        event.preventDefault();
+		event.preventDefault();
+		API.saveUser({
+			name: this.state.name,
+			lastname: this.state.lastname,
+			email: this.state.email,
+			password: this.state.password
+		})
+			
       
     };
 
@@ -44,45 +52,16 @@ class Welcome extends Component {
 					    </ul>
     				</div>
  				</nav>
-
- 				 <div className="row">
-			        <div className="col s8 offset-s2">
-			        	<div className="card blue-grey darken-1">
-			            	<div className="card-content white-text">
-			              		<span className="card-title">Sign Up</span>
-			              		<div className="row">
-								    <form className="col s12">
-								    	<div className="row">
-								        	<div className="input-field col s6">
-								          		<input id="first_name" type="text" className="validate" />
-								          		<label htmlFor="first_name">First Name</label>
-								        	</div>
-									        <div className="input-field col s6">
-									          <input id="last_name" type="text" className="validate" />
-									          <label htmlFor="last_name">Last Name</label>
-									        </div>
-								      	</div>
-								      	<div className="row">
-									        <div className="input-field col s12">
-										        <input id="password" type="password" className="validate" />
-										        <label htmlFor="password">Password</label>
-									        </div>
-								      	</div>
-									    <div className="row">
-									        <div className="input-field col s12">
-										        <input id="email" type="email" className="validate" />
-										        <label htmlFor="email">Email</label>
-									        </div>
-									    </div>
-								    </form>
-								</div>
-			            	</div>
-			            <div className="card-action">
-			            	<a href="#">Submit</a>
-			            </div>
-			          </div>
-			        </div>
-			    </div>
+				 <div className="container">
+					<form onSubmit={this.handleFormSubmit}>
+						<input type="text" name="name" placeholder="Name" value={this.state.value} onChange={this.handleInputChange} />
+						<input type="text" name="lastName" placeholder="Last Name" value={this.state.value} onChange={this.handleInputChange} />
+						<input type="text" name="email" placeholder="Email" value={this.state.value} onChange={this.handleInputChange} />
+						<input type="text" name="password" placeholder="Password" value={this.state.value} onChange={this.handleInputChange} />
+						<input type="text" name="confirmPassword" placeholder="Password" value={this.state.value} onChange={this.handleInputChange} />
+						<input type="submit" />
+					</form>
+				</div>
  			</div>	
 
         )
