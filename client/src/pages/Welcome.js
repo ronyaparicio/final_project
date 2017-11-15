@@ -25,8 +25,6 @@ class Welcome extends Component {
 			email: this.state.email,
 			password: this.state.password
 		})
-			
-      
     };
 
 
@@ -54,11 +52,11 @@ class Welcome extends Component {
  				</nav>
 				 <div className="container">
 					<form onSubmit={this.handleFormSubmit}>
-						<input type="text" name="name" placeholder="Name" value={this.state.value} onChange={this.handleInputChange} />
-						<input type="text" name="lastName" placeholder="Last Name" value={this.state.value} onChange={this.handleInputChange} />
-						<input type="text" name="email" placeholder="Email" value={this.state.value} onChange={this.handleInputChange} />
-						<input type="text" name="password" placeholder="Password" value={this.state.value} onChange={this.handleInputChange} />
-						<input type="text" name="confirmPassword" placeholder="Password" value={this.state.value} onChange={this.handleInputChange} />
+						<input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} />
+						<input type="text" name="lastname" placeholder="Last Name" value={this.state.lastname} onChange={this.handleInputChange} />
+						<input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} />
+						<input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
+						<input type="text" name="checkPassword" placeholder="Password" value={this.state.checkPassword} onChange={this.handleInputChange} />
 						<input type="submit" />
 					</form>
 				</div>
