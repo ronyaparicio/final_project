@@ -3,11 +3,14 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const expressValidator = require('express-validator');
 
 const PORT = process.env.PORT || 3001;
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(expressValidator());
+
 // // Serve up static assets
 app.use(express.static("client/build"));
 // // Add routes, both API and view
