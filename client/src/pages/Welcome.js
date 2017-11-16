@@ -35,7 +35,7 @@ class Welcome extends Component {
             <div>
             	<nav>
     				<div className="nav-wrapper">
-      					<a href="#" className="brand-logo center">Logo</a>
+      					<a href="/" className="brand-logo center">Logo</a>
       					<ul id="nav-mobile" className="right hide-on-med-and-down">
 					        <li>
 					        	<div className="input-field">
