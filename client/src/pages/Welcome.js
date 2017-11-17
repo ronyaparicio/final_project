@@ -1,12 +1,18 @@
 import React, { Component } from "react";
+
 import Footer from "../components/Footer"
+
+import API from "../utils/API"
+
 
 class Welcome extends Component {
 
     state = {
-        name: [],
+        name: "",
         lastname: "",
-        email: ""
+		email: "",
+		password: "",
+		checkPassword: ""
     };
 
     handleInputChange = event => {
@@ -16,18 +22,26 @@ class Welcome extends Component {
         });
     };
     handleFormSubmit = event => {
-        event.preventDefault();
-      
+		event.preventDefault();
+
+		API.saveUser({
+			name: this.state.name,
+			lastname: this.state.lastname,
+			email: this.state.email,
+			password: this.state.password,
+			checkPassword: this.state.checkPassword
+		})
     };
 
 
     render() {
         return (
             <div>
-
             	<nav>
     				<div className="nav-wrapper">
+
       					<a href="#" className="brand-logo center"><img src="../images/logo.png" alt="logo" /></a>
+
       					<ul id="nav-mobile" className="right hide-on-med-and-down">
 					        <li>
 					        	<div className="input-field">
@@ -44,6 +58,7 @@ class Welcome extends Component {
 					    </ul>
     				</div>
  				</nav>
+
 
  				 <div className="row">
 			        <div className="col s8 offset-s2">
@@ -90,9 +105,47 @@ class Welcome extends Component {
                 
             // </div>
 
+
+				 <div className="container">
+					<form onSubmit={this.handleFormSubmit}>
+						<input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} />
+						<input type="text" name="lastname" placeholder="Last Name" value={this.state.lastname} onChange={this.handleInputChange} />
+						<input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} />
+						<input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
+						<input type="password" name="checkPassword" placeholder="Password" value={this.state.checkPassword} onChange={this.handleInputChange} />
+						
+						<p>
+							<input type="checkbox"  />
+							<label>Action</label>
+						</p>
+						<p>
+							<input type="checkbox"  />
+							<label >Comedy</label>
+						</p>
+						<p>
+							<input type="checkbox"  />
+							<label >Adventure</label>
+						</p>
+						<p>
+							<input type="checkbox"  />
+							<label >Horror</label>
+						</p>
+						<p>
+							<input type="checkbox"  />
+							<label >Anime</label>
+						</p>
+						<p>
+							<input type="checkbox"  />
+							<label >Fiction</label>
+						</p>
+						<input type="submit" />
+					</form>
+				</div>
+ 			</div>	
+
+
         )
     }
-
 }
 
 
