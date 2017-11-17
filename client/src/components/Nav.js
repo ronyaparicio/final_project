@@ -1,11 +1,13 @@
 import React from "react";
 
+import logo from ".././logo.png"
+
 const Nav = () =>
 
 <div>
 	<nav className="nav-extended">
     <div className="nav-wrapper">
-      <a href="#" className="brand-logo center"><img src="../images/logo.png" alt="logo" /></a>
+      <a href="#" className="brand-logo center"><img id="logo" src={logo} alt="logo" /></a>
       <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><a href="/profile">Profile</a></li>
