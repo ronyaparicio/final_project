@@ -40,7 +40,7 @@ class Welcome extends Component {
             	<nav>
     				<div className="nav-wrapper">
 
-      					<a href="#" className="brand-logo center"><img src="../images/logo.png" alt="logo" /></a>
+      					<a href="/" className="brand-logo center"><img src="../images/logo.png" alt="logo" /></a>
 
       					<ul id="nav-mobile" className="right hide-on-med-and-down">
 					        <li>
@@ -93,17 +93,17 @@ class Welcome extends Component {
 								</div>
 			            	</div>
 			            <div className="card-action">
-			            	<a href="#">Submit</a>
+			            	<a href="/movies">Submit</a>
 			            </div>
 			          </div>
 			        </div>
 			    </div>
 
 			    <Footer />
- 			</div>	
+ 			
 
                 
-            // </div>
+            
 
 
 				 <div className="container">
