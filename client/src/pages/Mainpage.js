@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-// import UserSidebar from "../components/UserSidebar";
+
+import UserSidebar from "../components/UserSidebar";
 
 class Mainpage extends Component {
     render() {
@@ -11,7 +12,9 @@ class Mainpage extends Component {
             	<Nav />
 
             	<div className="row">
-				
+
+					<UserSidebar />
+
 					<div className="col s8">
 						<h3> Most Popular Movies/TV</h3>
 						<div className="card blue-grey darken-1 content">
@@ -21,8 +24,8 @@ class Mainpage extends Component {
 									<div className="col s4">
 										<div className="card">
 											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" />
-												<span className="card-title"><a className="waves-effect waves-light btn">Add to watch</a></span>
+												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title" />
+												<span className="card-title"><a id="addtowatch2" className="btn-floating btn waves-effect waves-light green"><i className="material-icons">add</i></a><a id="removefromwatch2" className="btn-floating btn waves-effect waves-light red"><i className="material-icons">remove</i></a></span>
 											</div>
 											<div className="card-content">
 				              					<p>Title: Lego Movie</p>
@@ -34,8 +37,8 @@ class Mainpage extends Component {
 									<div className="col s4">
 										<div className="card">
 											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" />
-												<span className="card-title"><a className="btn-floating btn waves-effect waves-light red"><i className="material-icons">add</i></a></span>
+												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title"/>
+												<span className="card-title"></span>
 											</div>
 											<div className="card-content">
 				              					<p>Title: Lego Movie</p>
@@ -47,7 +50,7 @@ class Mainpage extends Component {
 									<div className="col s4">
 										<div className="card">
 											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" />
+												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title"/>
 												<span className="card-title">Card Title</span>
 											</div>
 											<div className="card-content">
@@ -60,7 +63,7 @@ class Mainpage extends Component {
 									<div className="col s4">
 										<div className="card">
 											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" />
+												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title"/>
 												<span className="card-title">Card Title</span>
 											</div>
 											<div className="card-content">
@@ -73,7 +76,7 @@ class Mainpage extends Component {
 									<div className="col s4">
 										<div className="card">
 											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" />
+												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title"/>
 												<span className="card-title">Card Title</span>
 											</div>
 											<div className="card-content">
@@ -86,7 +89,7 @@ class Mainpage extends Component {
 									<div className="col s4">
 										<div className="card">
 											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" />
+												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title"/>
 												<span className="card-title">Card Title</span>
 											</div>
 											<div className="card-content">
