@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const authenticationController = require("../../controllers/authenticationController");
+
 // Matches with "/api/routes"
-router.post("/", function (req,res) {
+router.post("/register", function (req,res) {
       req.checkBody('name', 'Name field cannot be empty.').notEmpty();
       req.checkBody('lastname', 'Last name field cannot be empty.').notEmpty();
       req.checkBody('email', 'The email you entered is invalid, please try again.').isEmail();
@@ -17,7 +18,7 @@ router.post("/", function (req,res) {
             console.log(`erros: ${JSON.stringify(erros)}`);
       } else {
             console.log(req.body);
-            authenticationController.create(req.body);
+            authenticationController.register(req.body);
       }
 
       

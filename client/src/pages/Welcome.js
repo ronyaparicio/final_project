@@ -19,7 +19,8 @@ class Welcome extends Component {
         const { name, value } = event.target;
         this.setState({
             [name]: value
-        });
+		});
+		console.log('state:', this.state);
     };
     handleFormSubmit = event => {
 		event.preventDefault();
@@ -66,30 +67,40 @@ class Welcome extends Component {
 			            	<div className="card-content white-text">
 			              		<span className="card-title">Sign Up</span>
 			              		<div className="row">
-								    <form className="col s12">
-								    	<div className="row">
-								        	<div className="input-field col s6">
-								          		<input id="first_name" type="text" className="validate" />
-								          		<label htmlFor="first_name">First Name</label>
-								        	</div>
-									        <div className="input-field col s6">
-									          <input id="last_name" type="text" className="validate" />
-									          <label htmlFor="last_name">Last Name</label>
-									        </div>
-								      	</div>
-								      	<div className="row">
-									        <div className="input-field col s12">
-										        <input id="password" type="password" className="validate" />
-										        <label htmlFor="password">Password</label>
-									        </div>
-								      	</div>
-									    <div className="row">
-									        <div className="input-field col s12">
-										        <input id="email" type="email" className="validate" />
-										        <label htmlFor="email">Email</label>
-									        </div>
-									    </div>
-								    </form>
+									<form onSubmit={this.handleFormSubmit}>
+										<input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} />
+										<input type="text" name="lastname" placeholder="Last Name" value={this.state.lastname} onChange={this.handleInputChange} />
+										<input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} />
+										<input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
+										<input type="password" name="checkPassword" placeholder="Password" value={this.state.checkPassword} onChange={this.handleInputChange} />
+
+										<p>
+											<input type="checkbox" />
+											<label>Action</label>
+										</p>
+										<p>
+											<input type="checkbox" />
+											<label >Comedy</label>
+										</p>
+										<p>
+											<input type="checkbox" />
+											<label >Adventure</label>
+										</p>
+										<p>
+											<input type="checkbox" />
+											<label >Horror</label>
+										</p>
+										<p>
+											<input type="checkbox" />
+											<label >Anime</label>
+										</p>
+										<p>
+											<input type="checkbox" />
+											<label >Fiction</label>
+										</p>
+										<input type="submit" />
+									</form>
+								    
 								</div>
 			            	</div>
 			            <div className="card-action">
@@ -98,49 +109,7 @@ class Welcome extends Component {
 			          </div>
 			        </div>
 			    </div>
-
-			    <Footer />
- 			
-
-                
-            
-
-
-				 <div className="container">
-					<form onSubmit={this.handleFormSubmit}>
-						<input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} />
-						<input type="text" name="lastname" placeholder="Last Name" value={this.state.lastname} onChange={this.handleInputChange} />
-						<input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} />
-						<input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
-						<input type="password" name="checkPassword" placeholder="Password" value={this.state.checkPassword} onChange={this.handleInputChange} />
-						
-						<p>
-							<input type="checkbox"  />
-							<label>Action</label>
-						</p>
-						<p>
-							<input type="checkbox"  />
-							<label >Comedy</label>
-						</p>
-						<p>
-							<input type="checkbox"  />
-							<label >Adventure</label>
-						</p>
-						<p>
-							<input type="checkbox"  />
-							<label >Horror</label>
-						</p>
-						<p>
-							<input type="checkbox"  />
-							<label >Anime</label>
-						</p>
-						<p>
-							<input type="checkbox"  />
-							<label >Fiction</label>
-						</p>
-						<input type="submit" />
-					</form>
-				</div>
+				<Footer />
  			</div>	
 
 

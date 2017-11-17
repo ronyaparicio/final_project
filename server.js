@@ -10,7 +10,6 @@ const expressValidator = require('express-validator');
 const session = require('express-session')
 const passport = require('passport');
 
-<<<<<<< HEAD
 const PORT = process.env.PORT || 3001;
 app.use(session({
   secret: 'keyboard cat',
@@ -23,9 +22,6 @@ app.use(session({
     domain: "*.localhost"
   }
 }));
-=======
-const PORT = process.env.PORT || 3000;
->>>>>>> 7d2d1d47f7b2dfa9c13d47db61e073819f878e5f
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
