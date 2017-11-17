@@ -4,6 +4,8 @@ import Footer from "../components/Footer"
 
 import API from "../utils/API"
 
+import logo from ".././logo.png"
+
 
 class Welcome extends Component {
 
@@ -38,10 +40,10 @@ class Welcome extends Component {
     render() {
         return (
             <div>
-            	<nav>
+            	<nav id="navbar">
     				<div className="nav-wrapper">
 
-      					<a href="/" className="brand-logo center"><img src="../images/logo.png" alt="logo" /></a>
+      					<a href="/" className="brand-logo center"><img id="logo" src={logo} alt="logo" /></a>
 
       					<ul id="nav-mobile" className="right hide-on-med-and-down">
 					        <li>

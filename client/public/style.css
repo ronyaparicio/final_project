@@ -5,3 +5,19 @@ span {
 .card-content {
 	color: black;
 }
+
+#logo {
+	height: 80px;
+}
+
+#navbar {
+	height: 100px;
+}
+
+#green {
+	background-color: green;
+}
+
+#red {
+	background-color: red;
+}
