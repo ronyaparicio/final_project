@@ -10,7 +10,7 @@ const expressValidator = require('express-validator');
 const session = require('express-session')
 const passport = require('passport');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
