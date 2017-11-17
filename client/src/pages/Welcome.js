@@ -19,11 +19,13 @@ class Welcome extends Component {
     };
     handleFormSubmit = event => {
 		event.preventDefault();
+
 		API.saveUser({
 			name: this.state.name,
 			lastname: this.state.lastname,
 			email: this.state.email,
-			password: this.state.password
+			password: this.state.password,
+			checkPassword: this.state.checkPassword
 		})
     };
 
@@ -33,7 +35,7 @@ class Welcome extends Component {
             <div>
             	<nav>
     				<div className="nav-wrapper">
-      					<a href="#" className="brand-logo center">Logo</a>
+      					<a href="/" className="brand-logo center">Logo</a>
       					<ul id="nav-mobile" className="right hide-on-med-and-down">
 					        <li>
 					        	<div className="input-field">
@@ -54,9 +56,34 @@ class Welcome extends Component {
 					<form onSubmit={this.handleFormSubmit}>
 						<input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} />
 						<input type="text" name="lastname" placeholder="Last Name" value={this.state.lastname} onChange={this.handleInputChange} />
-						<input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} />
-						<input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
-						<input type="text" name="checkPassword" placeholder="Password" value={this.state.checkPassword} onChange={this.handleInputChange} />
+						<input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} />
+						<input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
+						<input type="password" name="checkPassword" placeholder="Password" value={this.state.checkPassword} onChange={this.handleInputChange} />
+						
+						<p>
+							<input type="checkbox"  />
+							<label>Action</label>
+						</p>
+						<p>
+							<input type="checkbox"  />
+							<label >Comedy</label>
+						</p>
+						<p>
+							<input type="checkbox"  />
+							<label >Adventure</label>
+						</p>
+						<p>
+							<input type="checkbox"  />
+							<label >Horror</label>
+						</p>
+						<p>
+							<input type="checkbox"  />
+							<label >Anime</label>
+						</p>
+						<p>
+							<input type="checkbox"  />
+							<label >Fiction</label>
+						</p>
 						<input type="submit" />
 					</form>
 				</div>
