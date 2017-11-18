@@ -12,18 +12,28 @@ class Welcome extends Component {
     state = {
         name: "",
         lastname: "",
-		email: "",
-		password: "",
-		checkPassword: ""
+				email: "",
+				password: "",
+				checkPassword: "",
+				genres: []
     };
 
     handleInputChange = event => {
         const { name, value } = event.target;
+        console.log(name, value);
         this.setState({
             [name]: value
 		});
 		console.log('state:', this.state);
     };
+
+    handleCheckChange = event => {
+        const { name, value } = event.target;
+        var joined = this.state.genres.concat(value);
+				this.setState({ genres: joined })
+		console.log('state:', this.state);
+    };
+
     handleFormSubmit = event => {
 		event.preventDefault();
 
@@ -32,7 +42,8 @@ class Welcome extends Component {
 			lastname: this.state.lastname,
 			email: this.state.email,
 			password: this.state.password,
-			checkPassword: this.state.checkPassword
+			checkPassword: this.state.checkPassword,
+			genres: this.state.genres
 		})
     };
 
@@ -77,28 +88,28 @@ class Welcome extends Component {
 										<input type="password" name="checkPassword" placeholder="Password" value={this.state.checkPassword} onChange={this.handleInputChange} />
 
 										<p>
-											<input type="checkbox" />
-											<label>Action</label>
+											<input type="checkbox" id="action" name="genres" value="action" onChange={this.handleCheckChange} />
+											<label htmlFor="action">Action</label>
 										</p>
 										<p>
-											<input type="checkbox" />
-											<label >Comedy</label>
+											<input type="checkbox" id="comedy" name="genres" value="comedy" onChange={this.handleCheckChange} />
+											<label htmlFor="comedy">Comedy</label>
 										</p>
 										<p>
-											<input type="checkbox" />
-											<label >Adventure</label>
+											<input type="checkbox" id="adventure" name="genres" value="adventure" onChange={this.handleCheckChange} />
+											<label htmlFor="adventure">Adventure</label>
 										</p>
 										<p>
-											<input type="checkbox" />
-											<label >Horror</label>
+											<input type="checkbox" id="horror" name="genres" value="horror" onChange={this.handleCheckChange} />
+											<label htmlFor="horror">Horror</label>
 										</p>
 										<p>
-											<input type="checkbox" />
-											<label >Anime</label>
+											<input type="checkbox" id="anime" name="genres" value="anime" onChange={this.handleCheckChange} />
+											<label htmlFor="anime">Anime</label>
 										</p>
 										<p>
-											<input type="checkbox" />
-											<label >Fiction</label>
+											<input type="checkbox" id="fiction" name="genres" value="fiction" onChange={this.handleCheckChange} />
+											<label htmlFor="fiction">Fiction</label>
 										</p>
 										<input type="submit" />
 									</form>
