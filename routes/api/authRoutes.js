@@ -18,14 +18,15 @@ router.post("/register", function (req,res) {
             console.log(`erros: ${JSON.stringify(erros)}`);
       } else {
             console.log(req.body);
-            authenticationController.register(req.body);
+            authenticationController.register(req,res);
       }
+});
 
-      
+router.post("/login", function (req,res) {
+      console.log(req.body);
+      authenticationController.login(req,res);
 
-
-
-})
+});
 
 // router.route("/")
 //   .post(authenticationController.create);

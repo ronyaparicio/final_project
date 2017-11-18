@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Redirect} from "react-router";
 
 import Footer from "../components/Footer"
 
@@ -12,10 +13,14 @@ class Welcome extends Component {
     state = {
         name: "",
         lastname: "",
-				email: "",
-				password: "",
-				checkPassword: "",
-				genres: []
+		email: "",
+		password: "",
+		checkPassword: "",
+		username: "",
+		loginPassword: "",
+		genres: [],
+		friends: [],
+		redirect: false
     };
 
     handleInputChange = event => {
@@ -24,7 +29,6 @@ class Welcome extends Component {
         this.setState({
             [name]: value
 		});
-		console.log('state:', this.state);
     };
 
     handleCheckChange = event => {
@@ -45,10 +49,31 @@ class Welcome extends Component {
 			checkPassword: this.state.checkPassword,
 			genres: this.state.genres
 		})
-    };
+	};
+	handleSignIn = event => {
+		event.preventDefault();
+
+		API.login({
+			email: this.state.username,
+			password: this.state.loginPassword
+		}).then((res) => {
+			console.log(res)
+			let data = res.data;
+			if (data && data.token) {
+				document.cookie = 'movieListUser=' + data.token + '; Path=/;'
+				localStorage.setItem('movieListUserId', data.id + '');
+				this.setState({redirect: true});
+			}
+		})
+	};
 
 
     render() {
+		const {redirect} = this.state.redirect;
+
+		if(redirect) {
+			return <Redirect to="/movies" />
+		}
         return (
             <div>
             	<nav id="navbar">
@@ -58,16 +83,11 @@ class Welcome extends Component {
 
       					<ul id="nav-mobile" className="right hide-on-med-and-down">
 					        <li>
-					        	<div className="input-field">
-						        	<input id="email" type="text" className="validate" />
-						        	<label htmlFor="email">Email</label>
-        						</div>
-					        </li>
-					        <li>
-					        	<div className="input-field">
-						        	<input id="password" type="password" className="validate" />
-						        	<label htmlFor="password">Password</label>
-        						</div>
+					        	<form onSubmit={this.handleSignIn}>
+									<input type="email" name="username" placeholder="email" value={this.state.username} onChange={this.handleInputChange}/>
+									<input type="password" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleInputChange}/>
+									<input type="submit" />
+								</form>
 					        </li>
 					    </ul>
     				</div>
