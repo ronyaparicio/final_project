@@ -4,11 +4,17 @@ export default {
     saveUser:(userData)=> {
          axios.post("/api/authRoutes/register", userData)
             .then((res)=> {
-                if (res && res.token) {
-                    document.cookie = 'movieListUser='+res.token+'; Path=/;'
-                    localStorage.setItem('movieListUserId', res.id + '');
+                console.log(res);
+                let data = res.data;
+                if (data && data.token) {
+                    document.cookie = 'movieListUser='+data.token+'; Path=/;'
+                    localStorage.setItem('movieListUserId', data.id + '');
                 }
             })
+    },
+    login: (userData)=> {
+       return axios.post("/api/authRoutes/login", userData);
+
     },
     exampleRequest: (movieData)=> {
         let movieToken = document.cookie.split("movieListUser=")[1]
