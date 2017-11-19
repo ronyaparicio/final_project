@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+// import Carousel from "../Components/Carousel";
+import {Carousel} from "react-materialize";
 
 const imgurl = `https://image.tmdb.org/t/p/w500`
 
@@ -7,11 +9,11 @@ const imgurl = `https://image.tmdb.org/t/p/w500`
 class SearchMoviesContainer extends Component {
 	constructor () {
 		super();
-		this.state = {
+		state = {
 			result: [],
 			search: "",
-			isReady: false
-
+			isReady: false,
+			url: "https://image.tmdb.org/t/p/w370_and_h556_bestv2"
 		};
 	}
 	componentDidMount() {
@@ -46,19 +48,17 @@ class SearchMoviesContainer extends Component {
     	this.searchMovieDB(this.state.search);
 	};
 
+	// this.state.result.map((movielist) => )
+
 	render() {
 		return(
 			<div>
 				{
-					this.state.result.map((movielist) => (
-						<div>
-							<h2>{movielist.title}</h2>
-							<h4>{movielist.overview}</h4>
-							<div> 
-								{movielist.poster_path}</div>
-
-						</div>
-						))
+					<Carousel images={[
+							this.state.result.map((movielist) => (
+								'this.state.url + movielist.poster_path'
+							))
+						]} />
 				}
 			</div>
 		)
