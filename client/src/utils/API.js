@@ -24,10 +24,10 @@ export default {
         let headers = {headers: {"Authorization": movieToken}}
         axios.post("/api/movie", movieData, headers)
             
+
     },
     moviedetails: function(query) {
       return axios.get(SEARCHURL);
-
     },
 
     topMovies: function(query) {

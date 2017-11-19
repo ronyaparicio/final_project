@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-
+import Movie from "../components/Movie";
 import UserSidebar from "../components/UserSidebar";
 
 class Mainpage extends Component {
@@ -21,84 +21,15 @@ class Mainpage extends Component {
 				        	<div className="card-content white-text">
 								<span className="card-title">Genre</span>
 								<div className="row">
-									<div className="col s4">
-										<div className="card">
-											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title" />
-												<span className="card-title"><a id="addtowatch2" className="btn-floating btn waves-effect waves-light green"><i className="material-icons">add</i></a><a id="removefromwatch2" className="btn-floating btn waves-effect waves-light red"><i className="material-icons">remove</i></a></span>
-											</div>
-											<div className="card-content">
-				              					<p>Title: Lego Movie</p>
-				              					<p>Genre: Comedy
-				              					</p>
-				            				</div>
-										</div>
-									</div>
-									<div className="col s4">
-										<div className="card">
-											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title"/>
-												<span className="card-title"></span>
-											</div>
-											<div className="card-content">
-				              					<p>Title: Lego Movie</p>
-				              					<p>Genre: Comedy
-				              					</p>
-				            				</div>
-										</div>
-									</div>
-									<div className="col s4">
-										<div className="card">
-											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title"/>
-												<span className="card-title">Card Title</span>
-											</div>
-											<div className="card-content">
-				              					<p>Title: Lego Movie</p>
-				              					<p>Genre: Comedy
-				              					</p>
-				            				</div>
-										</div>
-									</div>
-									<div className="col s4">
-										<div className="card">
-											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title"/>
-												<span className="card-title">Card Title</span>
-											</div>
-											<div className="card-content">
-				              					<p>Title: Lego Movie</p>
-				              					<p>Genre: Comedy
-				              					</p>
-				            				</div>
-										</div>
-									</div>
-									<div className="col s4">
-										<div className="card">
-											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title"/>
-												<span className="card-title">Card Title</span>
-											</div>
-											<div className="card-content">
-				              					<p>Title: Lego Movie</p>
-				              					<p>Genre: Comedy
-				              					</p>
-				            				</div>
-										</div>
-									</div>
-									<div className="col s4">
-										<div className="card">
-											<div className="card-image">
-												<img src="https://images-na.ssl-images-amazon.com/images/I/81HOzr3eD7L._AC_UL320_SR216,320_.jpg" alt="movie-title"/>
-												<span className="card-title">Card Title</span>
-											</div>
-											<div className="card-content">
-				              					<p>Title: Lego Movie</p>
-				              					<p>Genre: Comedy
-				              					</p>
-				            				</div>
-										</div>
-									</div>
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
 								</div>
 							</div>
 						</div>

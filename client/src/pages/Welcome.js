@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import {Redirect} from "react-router";
 
 import Footer from "../components/Footer"
 
 import API from "../utils/API"
+
+import logo from ".././logo.png"
 
 
 class Welcome extends Component {
@@ -12,15 +15,29 @@ class Welcome extends Component {
         lastname: "",
 		email: "",
 		password: "",
-		checkPassword: ""
+		checkPassword: "",
+		username: "",
+		loginPassword: "",
+		genres: [],
+		friends: [],
+		redirect: false
     };
 
     handleInputChange = event => {
         const { name, value } = event.target;
+        console.log(name, value);
         this.setState({
             [name]: value
-        });
+		});
     };
+
+    handleCheckChange = event => {
+        const { name, value } = event.target;
+        var joined = this.state.genres.concat(value);
+				this.setState({ genres: joined })
+		console.log('state:', this.state);
+    };
+
     handleFormSubmit = event => {
 		event.preventDefault();
 
@@ -29,31 +46,48 @@ class Welcome extends Component {
 			lastname: this.state.lastname,
 			email: this.state.email,
 			password: this.state.password,
-			checkPassword: this.state.checkPassword
+			checkPassword: this.state.checkPassword,
+			genres: this.state.genres
 		})
-    };
+	};
+	handleSignIn = event => {
+		event.preventDefault();
+
+		API.login({
+			email: this.state.username,
+			password: this.state.loginPassword
+		}).then((res) => {
+			console.log(res)
+			let data = res.data;
+			if (data && data.token) {
+				document.cookie = 'movieListUser=' + data.token + '; Path=/;'
+				localStorage.setItem('movieListUserId', data.id + '');
+				this.setState({redirect: true});
+			}
+		})
+	};
 
 
     render() {
+		const {redirect} = this.state.redirect;
+
+		if(redirect) {
+			return <Redirect to="/movies" />
+		}
         return (
             <div>
-            	<nav>
+            	<nav id="navbar">
     				<div className="nav-wrapper">
 
-      					<a href="/" className="brand-logo center"><img src="../images/logo.png" alt="logo" /></a>
+      					<a href="/" className="brand-logo center"><img id="logo" src={logo} alt="logo" /></a>
 
       					<ul id="nav-mobile" className="right hide-on-med-and-down">
 					        <li>
-					        	<div className="input-field">
-						        	<input id="email" type="text" className="validate" />
-						        	<label htmlFor="email">Email</label>
-        						</div>
-					        </li>
-					        <li>
-					        	<div className="input-field">
-						        	<input id="password" type="password" className="validate" />
-						        	<label htmlFor="password">Password</label>
-        						</div>
+					        	<form onSubmit={this.handleSignIn}>
+									<input type="email" name="username" placeholder="email" value={this.state.username} onChange={this.handleInputChange}/>
+									<input type="password" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleInputChange}/>
+									<input type="submit" />
+								</form>
 					        </li>
 					    </ul>
     				</div>
@@ -66,30 +100,40 @@ class Welcome extends Component {
 			            	<div className="card-content white-text">
 			              		<span className="card-title">Sign Up</span>
 			              		<div className="row">
-								    <form className="col s12">
-								    	<div className="row">
-								        	<div className="input-field col s6">
-								          		<input id="first_name" type="text" className="validate" />
-								          		<label htmlFor="first_name">First Name</label>
-								        	</div>
-									        <div className="input-field col s6">
-									          <input id="last_name" type="text" className="validate" />
-									          <label htmlFor="last_name">Last Name</label>
-									        </div>
-								      	</div>
-								      	<div className="row">
-									        <div className="input-field col s12">
-										        <input id="password" type="password" className="validate" />
-										        <label htmlFor="password">Password</label>
-									        </div>
-								      	</div>
-									    <div className="row">
-									        <div className="input-field col s12">
-										        <input id="email" type="email" className="validate" />
-										        <label htmlFor="email">Email</label>
-									        </div>
-									    </div>
-								    </form>
+									<form onSubmit={this.handleFormSubmit}>
+										<input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} />
+										<input type="text" name="lastname" placeholder="Last Name" value={this.state.lastname} onChange={this.handleInputChange} />
+										<input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} />
+										<input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
+										<input type="password" name="checkPassword" placeholder="Password" value={this.state.checkPassword} onChange={this.handleInputChange} />
+
+										<p>
+											<input type="checkbox" id="action" name="genres" value="action" onChange={this.handleCheckChange} />
+											<label htmlFor="action">Action</label>
+										</p>
+										<p>
+											<input type="checkbox" id="comedy" name="genres" value="comedy" onChange={this.handleCheckChange} />
+											<label htmlFor="comedy">Comedy</label>
+										</p>
+										<p>
+											<input type="checkbox" id="adventure" name="genres" value="adventure" onChange={this.handleCheckChange} />
+											<label htmlFor="adventure">Adventure</label>
+										</p>
+										<p>
+											<input type="checkbox" id="horror" name="genres" value="horror" onChange={this.handleCheckChange} />
+											<label htmlFor="horror">Horror</label>
+										</p>
+										<p>
+											<input type="checkbox" id="anime" name="genres" value="anime" onChange={this.handleCheckChange} />
+											<label htmlFor="anime">Anime</label>
+										</p>
+										<p>
+											<input type="checkbox" id="fiction" name="genres" value="fiction" onChange={this.handleCheckChange} />
+											<label htmlFor="fiction">Fiction</label>
+										</p>
+										<input type="submit" />
+									</form>
+								    
 								</div>
 			            	</div>
 			            <div className="card-action">
@@ -98,49 +142,7 @@ class Welcome extends Component {
 			          </div>
 			        </div>
 			    </div>
-
-			    <Footer />
- 			
-
-                
-            
-
-
-				 <div className="container">
-					<form onSubmit={this.handleFormSubmit}>
-						<input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} />
-						<input type="text" name="lastname" placeholder="Last Name" value={this.state.lastname} onChange={this.handleInputChange} />
-						<input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} />
-						<input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
-						<input type="password" name="checkPassword" placeholder="Password" value={this.state.checkPassword} onChange={this.handleInputChange} />
-						
-						<p>
-							<input type="checkbox"  />
-							<label>Action</label>
-						</p>
-						<p>
-							<input type="checkbox"  />
-							<label >Comedy</label>
-						</p>
-						<p>
-							<input type="checkbox"  />
-							<label >Adventure</label>
-						</p>
-						<p>
-							<input type="checkbox"  />
-							<label >Horror</label>
-						</p>
-						<p>
-							<input type="checkbox"  />
-							<label >Anime</label>
-						</p>
-						<p>
-							<input type="checkbox"  />
-							<label >Fiction</label>
-						</p>
-						<input type="submit" />
-					</form>
-				</div>
+				<Footer />
  			</div>	
 
 

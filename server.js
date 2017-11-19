@@ -10,7 +10,18 @@ const expressValidator = require('express-validator');
 const session = require('express-session')
 const passport = require('passport');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  name: "howdy",
+  cookie: { 
+    secure: false,
+    sameSite: true,
+    domain: "*.localhost"
+  }
+}));
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -20,12 +31,6 @@ app.use(cookieParser());
 // // Serve up static assets
 app.use(express.static("client/build"));
 
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false
-  // cookie: { secure: true }
-}));
 app.use(passport.initialize());
 app.use(passport.session());
 

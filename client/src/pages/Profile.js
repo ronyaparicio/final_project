@@ -1,22 +1,41 @@
-// import React, { Component } from "react";
-// import Nav from "../components/Nav";
-// import Container from "../components/Grid";
-// // import Movie from "../components/Movie";
+import React, { Component } from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import Movie from "../components/Movie";
+import UserSidebar from "../components/UserSidebar";
 
-// class Profile extends Component {
-//     render() {
-//         return (
-//             <Container>
-//             	<Nav>
-            		
-//             	</Nav>
-//             	<img src={'https://image.tmdb.org/t/p/w276_and_h350_bestv2/5rOcicCrTCWye0O2S3dnbnWaCr1.jpg'}>
-//             		</img>
-//             </Container>
-//         )
-//     }
+class Profile extends Component {
+	render() {
+		return (
+			<div>
+				<Nav />
 
-// }
+				<div className="row">
+					<UserSidebar />
 
+					<div className="col s8">
+						<h3> Your List</h3>
+						<div className="card blue-grey darken-1 content">
+				        	<div className="card-content white-text">
+								<span className="card-title">Genre</span>
+								<div className="row">
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+									<Movie />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		)
+	}
+}
 
-// export default Profile;
+export default Profile;
