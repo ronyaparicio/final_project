@@ -19,7 +19,7 @@ class Mainpage extends Component {
 						<h3> Most Popular Movies/TV</h3>
 						<div className="card blue-grey darken-1 content">
 				        	<div className="card-content white-text">
-								<span className="card-title">Genre</span>
+								<span className="card-title">All</span>
 								<div className="row">
 									<Movie />
 									<Movie />
