@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router";
 
-import Footer from "../components/Footer"
-
-import API from "../utils/API"
-
-import logo from ".././logo.png"
+import Footer from "../components/Footer";
+import API from "../utils/API";
+import logo from ".././logo.png";
 
 
 class Welcome extends Component {
@@ -38,6 +35,14 @@ class Welcome extends Component {
 			email: this.state.email,
 			password: this.state.password,
 			checkPassword: this.state.checkPassword
+		}).then((res) => {
+			console.log(res);
+			let data = res.data;
+			if (data && data.token) {
+				document.cookie = 'movieListUser=' + data.token + '; Path=/;'
+				localStorage.setItem('movieListUserId', data.id + '');
+				this.props.history.push('/movies');
+			}
 		})
 	};
 	handleSignIn = event => {
@@ -47,23 +52,19 @@ class Welcome extends Component {
 			email: this.state.username,
 			password: this.state.loginPassword
 		}).then((res) => {
-			console.log(res)
 			let data = res.data;
 			if (data && data.token) {
 				document.cookie = 'movieListUser=' + data.token + '; Path=/;'
 				localStorage.setItem('movieListUserId', data.id + '');
-				this.setState({redirect: true});
+				
+				this.props.history.push('/movies');
 			}
 		})
 	};
 
 
     render() {
-		const {redirect} = this.state.redirect;
-
-		if(redirect) {
-			return <Redirect to="/movies" />
-		}
+		
         return (
             <div>
             	<nav id="navbar">
