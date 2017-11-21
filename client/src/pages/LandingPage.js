@@ -1,75 +1,3 @@
-<<<<<<< Updated upstream
-import React, { Component } from "react";
-import API from "../utils/API";
-// import Carousel from "../Components/Carousel";
-import {Carousel} from "react-materialize";
-
-const imgurl = `https://image.tmdb.org/t/p/w500`
-
-
-class SearchMoviesContainer extends Component {
-	constructor () {
-		super();
-		state = {
-			result: [],
-			search: "",
-			isReady: false,
-			url: "https://image.tmdb.org/t/p/w370_and_h556_bestv2"
-		};
-	}
-	componentDidMount() {
-		this.topMovies();
-	}
-
-
-	topMovies = () => {
-		API.topMovies()
-			.then(res => this.setState({ result: res.data.results}))
-			.catch(err => console.log(err));
-	}
-
-	searchMovieDB = query => {
-		API.moviedetails(query)
-			.then(res => this.setState({ result: res.data}))
-			.catch(err => console.log(err));
-	};
-
-
-  	handleInputChange = event => {
-    	const value = event.target.value;
-    	const name = event.target.name;
-    	this.setState({
-      		[name]: value
-    	});
-  	};
-
- // When the form is submitted, search the MovieDB API for the value of `this.state.search`
-	handleFormSubmit = event => {
-    	event.preventDefault();
-    	this.searchMovieDB(this.state.search);
-	};
-
-	// this.state.result.map((movielist) => )
-
-	render() {
-		return(
-			<div>
-				{
-					<Carousel images={[
-							this.state.result.map((movielist) => (
-								'this.state.url + movielist.poster_path'
-							))
-						]} />
-				}
-			</div>
-		)
-	}
-}
-			// <h2>{this.state.result.title}</h2>
-export default SearchMoviesContainer;
-
-||||||| merged common ancestors
-=======
 import React, { Component } from "react";
 import API from "../utils/API";
 // import Carousel from "../Components/Carousel";
@@ -79,30 +7,37 @@ import {Carousel} from "react-materialize";
 
 
 class SearchMoviesContainer extends Component {
-		state = {
+	constructor() {
+		super();
+		this.state = {
 			result: [],
-			search: "",
-			isReady: false,
-			url: "https://image.tmdb.org/t/p/w370_and_h556_bestv2",
-			poster: ''
+			poster: [],
+			url: "https://image.tmdb.org/t/p/w370_and_h556_bestv2"
+	}
 		};
 	
 	componentDidMount() {
 		this.topMovies();
 		this.getPosterPath();
+		// console.log('poster', poster);
+	
 	};
 
 	topMovies = () => {
 		API.topMovies()
-			.then(res => this.setState({ result: res.data.results}))
+			.then(res => this.setState({ result: res.data.results.poster_path}));
+				this.state.result.map((movieList) => (
+								poster = {url, movieList} 
+						))
 			.catch(err => console.log(err));
 	};
 
-	getPosterPath = () => {
-		this.state.result.map(function(posterpath) {
-			return { poster: this.state.url + posterpath.poster_path }
-		})
-	};
+	// getPosterPath = () => {
+	// 	this.state.result.map((movieList) => (
+							
+	// 							poster = {url, movieList.poster_path} 
+	// 					))
+	// };
 
 	// searchMovieDB = query => {
 	// 	API.moviedetails(query)
@@ -123,8 +58,8 @@ class SearchMoviesContainer extends Component {
 			<div>
 				{
 					<Carousel images={[
-						{ this.state.poster }
-						]} />
+						{ poster }
+					]} />
 				}
 			</div>
 		);
@@ -133,5 +68,3 @@ class SearchMoviesContainer extends Component {
 
 
 export default SearchMoviesContainer;
-
->>>>>>> Stashed changes
