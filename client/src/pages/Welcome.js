@@ -28,6 +28,7 @@ class Welcome extends Component {
         console.log(name, value);
         this.setState({
             [name]: value
+<<<<<<< Updated upstream
 		});
     };
 
@@ -36,6 +37,18 @@ class Welcome extends Component {
         var joined = this.state.genres.concat(value);
 				this.setState({ genres: joined })
 		console.log('state:', this.state);
+||||||| merged common ancestors
+        });
+=======
+        });
+		};
+
+    handleCheckChange = event => {
+        const { name, value } = event.target;
+        var joined = this.state.genres.concat(value);
+				this.setState({ genres: joined });
+		console.log('state:', this.state);
+>>>>>>> Stashed changes
     };
 
     handleFormSubmit = event => {
