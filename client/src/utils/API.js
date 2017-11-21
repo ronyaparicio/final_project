@@ -5,10 +5,12 @@ const SEARCHURL = `https://api.themoviedb.org/3/search/movie?api_key=dfc918e8933
 
 export default {
     saveUser:(userData)=> {
-         axios.post("/api/authRoutes/register", userData)
+         return axios.post("/api/authRoutes/register", userData)
+         
     },
     login: (userData)=> {
-        axios.post("/api/authRoutes/login", userData);
+        return axios.post("/api/authRoutes/login", userData)
+
     },
     exampleRequest: (movieData)=> {
         let movieToken = document.cookie.split("movieListUser=")[1]

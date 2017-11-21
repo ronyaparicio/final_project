@@ -44,7 +44,7 @@ class Welcome extends Component {
 			checkPassword: this.state.checkPassword,
 			genres: this.state.genres
 		}).then((res) => {
-			console.log(res);
+			console.log("idk");
 			let data = res.data;
 			if (data && data.token) {
 				document.cookie = 'movieListUser=' + data.token + '; Path=/;'
@@ -53,12 +53,14 @@ class Welcome extends Component {
 			}
 		})
 	};
+
 	handleSignIn = event => {
 		event.preventDefault();
 		API.login({
 			email: this.state.username,
 			password: this.state.loginPassword
 		}).then((res) => {
+			console.log('idk')
 			let data = res.data;
 			if (data && data.token) {
 				document.cookie = 'movieListUser=' + data.token + '; Path=/;'

@@ -49,17 +49,15 @@ module.exports = {
   },
   login: (req,res)=> {
     db.Users.findOne({ email: req.body.email }, (error, existingUser) => {
-        console.log(existingUser.password);
         bcrypt.compare(req.body.password, existingUser.password, (err, match)=> {
           if(err) {
             throw err
           }
           console.log(match);
           if(match) {
+            console.log(existingUser)
             res.send(getSafeUser(existingUser))
           }
-
-
         })
     })
   }
