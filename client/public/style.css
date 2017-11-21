@@ -6,6 +6,10 @@ span {
 	color: black;
 }
 
+.signInForm {
+	margin-bottom: 0px;
+}
+
 #logo {
 	height: 80px;
 }
@@ -20,4 +24,8 @@ span {
 
 #red {
 	background-color: red;
+}
+
+.signIn {
+	max-height: 100px;
 }
