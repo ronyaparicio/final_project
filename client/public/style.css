@@ -1,3 +1,7 @@
+body {
+	color: black;
+}
+
 span {
 	text-align: center;
 }
@@ -6,8 +10,13 @@ span {
 	color: black;
 }
 
+.signInForm {
+	margin-bottom: 0px;
+}
+
 #logo {
 	height: 80px;
+	z-index: 10;
 }
 
 #navbar {
@@ -21,3 +30,17 @@ span {
 #red {
 	background-color: red;
 }
+
+.signIn {
+	max-height: 100px;
+}
+
+.nav-wrapper {
+	min-height: 95px;
+}
+
+.nav-content {
+	z-index: 1;
+}
+
+

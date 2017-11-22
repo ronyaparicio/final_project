@@ -77,16 +77,16 @@ class Welcome extends Component {
         return (
             <div>
             	<nav id="navbar">
-    				<div className="nav-wrapper">
+    				<div className="nav-wrapper indigo darken-1">
 
       					<a href="/" className="brand-logo center"><img id="logo" src={logo} alt="logo" /></a>
 
-      					<ul id="nav-mobile" className="right hide-on-med-and-down">
+      					<ul id="nav-mobile" className="right">
 					        <li>
 					        	<form onSubmit={this.handleSignIn}>
-									<input type="email" name="username" placeholder="email" value={this.state.username} onChange={this.handleInputChange}/>
-									<input type="password" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleInputChange}/>
-									<input type="submit" />
+									<input className="signInForm" type="email" name="username" placeholder="email" value={this.state.username} onChange={this.handleInputChange}/>
+									<input className="signInForm" type="password" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleInputChange}/>
+									<input id="signiInButton" type="submit" />
 								</form>
 					        </li>
 					    </ul>
@@ -96,7 +96,7 @@ class Welcome extends Component {
 
  				 <div className="row">
 			        <div className="col s8 offset-s2">
-			        	<div className="card blue-grey darken-1">
+			        	<div className="card indigo lighten-4" id="welcomeForm">
 			            	<div className="card-content white-text">
 			              		<span className="card-title">Sign Up</span>
 			              		<div className="row">

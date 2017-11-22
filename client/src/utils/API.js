@@ -23,7 +23,14 @@ export default {
 
     topMovies: function(query) {
         return axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=dfc918e89334423f004fdc14fda75e92&sort_by=popularity.desc&page=1`);
+
+    },
+
+    topAction: function(query) {
+        return axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=dfc918e89334423f004fdc14fda75e92&sort_by=popularity.desc&with_genres=28`);
     }
 };
+
+
 
 
