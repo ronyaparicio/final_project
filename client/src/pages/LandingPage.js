@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 // import Carousel from "../Components/Carousel";
-import {Carousel} from "react-materialize";
+import { Carousel } from "react-responsive-carousel";
 
 // const imgurl = `https://image.tmdb.org/t/p/w500`
 
@@ -11,24 +11,19 @@ class SearchMoviesContainer extends Component {
 		super();
 		this.state = {
 			result: [],
-			poster: [],
-			url: "https://image.tmdb.org/t/p/w370_and_h556_bestv2"
-	}
+			posterImage: []	}
 		};
 	
 	componentDidMount() {
 		this.topMovies();
-		this.getPosterPath();
+		// this.getPosterPath();
 		// console.log('poster', poster);
 	
 	};
 
 	topMovies = () => {
 		API.topMovies()
-			.then(res => this.setState({ result: res.data.results.poster_path}));
-				this.state.result.map((movieList) => (
-								poster = {url, movieList} 
-						))
+			.then(res => this.setState({ result: res.data.results}))
 			.catch(err => console.log(err));
 	};
 
@@ -51,17 +46,25 @@ class SearchMoviesContainer extends Component {
  //    	event.preventDefault();
  //    	this.searchMovieDB(this.state.search);
 	// };
- 
+
+
+ // <p className="legend">Legend {this.index + 1}</p>
 
 	render() {
+			const url = "https://image.tmdb.org/t/p/w370_and_h556_bestv2";
+			let joined = [];
+			this.state.result.map((currentMovie) => {
+	        joined.push(url + currentMovie.poster_path);
+					// this.setState({ movieList: joined })
+			})
+
 		return (
-			<div>
-				{
-					<Carousel images={[
-						{ poster }
-					]} />
-				}
-			</div>
+					<Carousel>
+						{joined.map((currentImg, index) => {
+					 		return <div key={index}><img src={ this.currentImg } /></div>
+					 	})
+					 }
+					</Carousel>
 		);
 	}
 }
