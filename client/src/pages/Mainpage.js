@@ -16,7 +16,7 @@ class Mainpage extends Component {
 					<UserSidebar />
 
 					<div className="col s8">
-						<h3> Most Popular Movies/TV</h3>
+						<h3 id="title"> Most Popular Movies/TV</h3>
 						<div className="card indigo lighten-4 content">
 				        	<div className="card-content white-text">
 								<span className="card-title">All</span>

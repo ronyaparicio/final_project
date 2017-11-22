@@ -76,10 +76,10 @@ class Welcome extends Component {
 		}
         return (
             <div>
-            	<nav id="navbar">
+            	<nav id="navbar" className="indigo darken-1">
     				<div className="nav-wrapper indigo darken-1">
 
-      					<a href="/" className="brand-logo center"><img id="logo" src={logo} alt="logo" /></a>
+      					<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
 
       					<ul id="nav-mobile" className="right">
 					        <li>
@@ -136,9 +136,7 @@ class Welcome extends Component {
 								    
 								</div>
 			            	</div>
-			            <div className="card-action">
-			            	<a href="/movies">Submit</a>
-			            </div>
+			            
 			          </div>
 			        </div>
 			    </div>
