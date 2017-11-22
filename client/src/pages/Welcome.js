@@ -77,7 +77,7 @@ class Welcome extends Component {
         return (
             <div>
             	<nav id="navbar">
-    				<div className="nav-wrapper">
+    				<div className="nav-wrapper indigo darken-1">
 
       					<a href="/" className="brand-logo center"><img id="logo" src={logo} alt="logo" /></a>
 
@@ -96,7 +96,7 @@ class Welcome extends Component {
 
  				 <div className="row">
 			        <div className="col s8 offset-s2">
-			        	<div className="card blue-grey darken-1">
+			        	<div className="card indigo lighten-4" id="welcomeForm">
 			            	<div className="card-content white-text">
 			              		<span className="card-title">Sign Up</span>
 			              		<div className="row">
