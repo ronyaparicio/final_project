@@ -5,26 +5,17 @@ const SEARCHURL = `https://api.themoviedb.org/3/search/movie?api_key=dfc918e8933
 
 export default {
     saveUser:(userData)=> {
-         axios.post("/api/authRoutes/register", userData)
-            .then((res)=> {
-                console.log(res);
-                let data = res.data;
-                if (data && data.token) {
-                    document.cookie = 'movieListUser='+data.token+'; Path=/;'
-                    localStorage.setItem('movieListUserId', data.id + '');
-                }
-            })
+         return axios.post("/api/authRoutes/register", userData)
+         
     },
     login: (userData)=> {
-       return axios.post("/api/authRoutes/login", userData);
+        return axios.post("/api/authRoutes/login", userData)
 
     },
     exampleRequest: (movieData)=> {
         let movieToken = document.cookie.split("movieListUser=")[1]
         let headers = {headers: {"Authorization": movieToken}}
         axios.post("/api/movie", movieData, headers)
-            
-
     },
     moviedetails: function(query) {
       return axios.get(SEARCHURL);

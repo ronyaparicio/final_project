@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router";
 
-import Footer from "../components/Footer"
-
-import API from "../utils/API"
-
-import logo from ".././logo.png"
+import Footer from "../components/Footer";
+import API from "../utils/API";
+import logo from ".././logo.png";
 
 
 class Welcome extends Component {
@@ -25,16 +22,15 @@ class Welcome extends Component {
 
     handleInputChange = event => {
         const { name, value } = event.target;
-        console.log(name, value);
         this.setState({
             [name]: value
-		});
-    };
+        });
+		};
 
     handleCheckChange = event => {
         const { name, value } = event.target;
         var joined = this.state.genres.concat(value);
-				this.setState({ genres: joined })
+				this.setState({ genres: joined });
 		console.log('state:', this.state);
     };
 
@@ -48,32 +44,36 @@ class Welcome extends Component {
 			password: this.state.password,
 			checkPassword: this.state.checkPassword,
 			genres: this.state.genres
-		})
-	};
-	handleSignIn = event => {
-		event.preventDefault();
-
-		API.login({
-			email: this.state.username,
-			password: this.state.loginPassword
 		}).then((res) => {
-			console.log(res)
+			console.log("idk");
 			let data = res.data;
 			if (data && data.token) {
 				document.cookie = 'movieListUser=' + data.token + '; Path=/;'
 				localStorage.setItem('movieListUserId', data.id + '');
-				this.setState({redirect: true});
+				this.props.history.push('/movies');
+			}
+		})
+	};
+
+	handleSignIn = event => {
+		event.preventDefault();
+		API.login({
+			email: this.state.username,
+			password: this.state.loginPassword
+		}).then((res) => {
+			console.log('idk')
+			let data = res.data;
+			if (data && data.token) {
+				document.cookie = 'movieListUser=' + data.token + '; Path=/;'
+				localStorage.setItem('movieListUserId', data.id + '');
+				this.props.history.push('/movies');
 			}
 		})
 	};
 
 
     render() {
-		const {redirect} = this.state.redirect;
-
-		if(redirect) {
-			return <Redirect to="/movies" />
-		}
+		
         return (
             <div>
             	<nav id="navbar">
