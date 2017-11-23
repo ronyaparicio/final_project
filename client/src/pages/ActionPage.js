@@ -13,9 +13,8 @@ class ActionPage extends Component {
 
             	<div className="row">
 
-					<UserSidebar />
-
-					<div className="col s8">
+				
+					<div className="col s8 offset-s2">
 						<h3 id="title">Action</h3>
 						<div className="card indigo lighten-4 content">
 				        	<div className="card-content white-text">

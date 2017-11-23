@@ -18,7 +18,7 @@ const Nav = () =>
         <li><a href="collapsible.html">JavaScript</a></li>
       </ul>
     </div>
-    <div className="nav-content indigo">
+    <div className="nav-content indigo darken-1">
       <ul className="tabs tabs-transparent">
         <li className="tab"><a className="active" href="#test1">All</a></li>
         <li className="tab"><a href="#test2">Action</a></li>

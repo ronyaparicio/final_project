@@ -8,12 +8,14 @@ class Movie extends Component {
 	        
 	        color: 'green',
 	        icon: 'add',
-	        result: []
+	        result: [],
+	        userMovies: []
 	    };
 	}
 
 	componentDidMount() {
 		this.topMovies();
+		this.getUserMovies();
 	}
 
 	topMovies = () => {
@@ -21,19 +23,41 @@ class Movie extends Component {
             .then(res => this.setState({ result: res.data.results}))
             .catch(err => console.log(err));
     }
+
+    getUserMovies = () => {
+    	// API.getUserMovies()
+    		// .then(res => this.setState({ userMovies: res.data.results}))
+      //       .catch(err => console.log(err));
+    }
+
+    isMovieAUserMovie = (id) => {
+    	this.state.userMovies.find(movie => {
+    		return movie.id === id;
+    	}) 
+    }
 	
     handleClick = event => {
-        if (this.state.color === 'green'){
-            this.setState({color: 'red'});
-        } else {
-            this.setState({color: 'green'});
-        }
+    	console.log(event)
+    	const element = event.target;
+    	const { id, isInUserMovies } = element;
+    	console.log(isInUserMovies);
 
-        if (this.state.icon === 'add') {
-        		this.setState({icon: 'remove'});
-        } else {
-        	this.setState({icon: 'add'});
-        }
+    	// TODO: change to green if wasn't in list or red if was
+    	// element.classList.add('green');
+    	// API.addMovieToUser(id, userId);
+
+
+        // if (this.state.color === 'green'){
+        //     this.setState({color: 'red'});
+        // } else {
+        //     this.setState({color: 'green'});
+        // }
+
+        // if (this.state.icon === 'add') {
+        // 		this.setState({icon: 'remove'});
+        // } else {
+        // 	this.setState({icon: 'add'});
+        // }
     }
 
 	render() {
@@ -42,22 +66,32 @@ class Movie extends Component {
         return (
 			<div>
 				{
-					this.state.result.map((movieList) => (
+					this.state.result.map((movie) => {
+						let isAUserMovie = this.isMovieAUserMovie(movie.id) ? true : false;
 
-						<div className="col s4 movieBox">
-							<div className="card">
-								<div className="card-image">
-									<img src={imgURL + movieList.poster_path} />
-									<span className="card-title"><a id={this.state.color} onClick={this.handleClick} className="btn-floating btn waves-effect waves-light"><i className="material-icons">{this.state.icon}</i></a></span>
-								</div>
-								<div className="card-content movieInfo">
-										<p>Title: {movieList.title}</p>
-										<p>Genre: {movieList.genre_ids}</p>
-										<p>Rating: {movieList.vote_average}</p>
+						return (
+							<div className="col s4 movieBox">
+								<div className="card">
+									<div className="card-image">
+										<img src={imgURL + movie.poster_path} />
+										<span className="card-title">
+											<!-- dynamically add gree/red class based on isAUserMovie (t/f) -->
+											<i 
+												isInUserMovies={isAUserMovie}
+												onClick={this.handleClick}
+												id={movie.id}
+												className="material-icons btn-floating btn waves-effect waves-light">{this.state.icon}</i>
+											</span>
+									</div>
+									<div className="card-content movieInfo">
+											<p>Title: {movie.title}</p>
+											<p>Genre: {movie.genre_ids}</p>
+											<p>Rating: {movie.vote_average}</p>
+									</div>
 								</div>
 							</div>
-						</div>
-					))
+						);
+					})
 				}
 				
 			</div>

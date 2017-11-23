@@ -71,11 +71,11 @@ h3 {
  }
 
 /*Add and remove from watch buttons*/
-#green {
+.green {
 	background-color: green;
 }
 
-#red {
+.red {
 	background-color: red;
 }
 
@@ -84,5 +84,9 @@ h3 {
 	color: #3949ab;
 }
 
+/*Footer*/
+.page-footer {
+	margin-bottom: 0px;
+}
 
 

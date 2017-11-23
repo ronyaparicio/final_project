@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Movie from "../components/Movie";
-import UserSidebar from "../components/UserSidebar";
+// import UserSidebar from "../components/UserSidebar";
 
 class Mainpage extends Component {
     render() {
@@ -13,9 +13,9 @@ class Mainpage extends Component {
 
             	<div className="row">
 
-					<UserSidebar />
+					
 
-					<div className="col s8">
+					<div className="col s8 offset-s2">
 						<h3 id="title"> Most Popular Movies/TV</h3>
 						<div className="card indigo lighten-4 content">
 				        	<div className="card-content white-text">
