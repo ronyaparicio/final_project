@@ -2,33 +2,36 @@ import React, { Component } from "react";
 import API from "../utils/API";
 // import Carousel from "../Components/Carousel";
 import { Carousel } from "react-responsive-carousel";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+
+
 
 // const imgurl = `https://image.tmdb.org/t/p/w500`
 
 
 class SearchMoviesContainer extends Component {
-	constructor() {
-		super();
-		this.state = {
-			result: [],
-			posterImage: []	}
+
+		state = {
+			posterPath: [],
+			urlImage: [],
+			urlBeginning: "https://image.tmdb.org/t/p/w370_and_h556_bestv2"
 		};
 	
 	componentDidMount() {
 		this.topMovies();
-		// this.getPosterPath();
-		// console.log('poster', poster);
+		// this.setState({posterPath:posterPath});
 	
 	};
 
 	topMovies = () => {
 		API.topMovies()
-			.then(res => this.setState({ result: res.data.results}))
+			.then(res => this.setState({ posterPath: res.data.results}))
 			.catch(err => console.log(err));
 	};
 
 	// getPosterPath = () => {
-	// 	this.state.result.map((movieList) => (
+	// 	this.state.posterPath.map((movieList) => (
 							
 	// 							poster = {url, movieList.poster_path} 
 	// 					))
@@ -36,7 +39,7 @@ class SearchMoviesContainer extends Component {
 
 	// searchMovieDB = query => {
 	// 	API.moviedetails(query)
-	// 		.then(res => this.setState({ result: res.data}))
+	// 		.then(res => this.setState({ posterPath: res.data}))
 	// 		.catch(err => console.log(err));
 	// };
 
@@ -50,21 +53,26 @@ class SearchMoviesContainer extends Component {
 
  // <p className="legend">Legend {this.index + 1}</p>
 
+ 
+
 	render() {
-			const url = "https://image.tmdb.org/t/p/w370_and_h556_bestv2";
-			let joined = [];
-			this.state.result.map((currentMovie) => {
-	        joined.push(url + currentMovie.poster_path);
-					// this.setState({ movieList: joined })
+			this.state.posterPath.map((currentMovie) => {
+	        this.state.urlImage.push(this.state.urlBeginning + currentMovie.poster_path);
+					// this.setState({ movieList: urlImage })
 			})
 
 		return (
-					<Carousel>
-						{joined.map((currentImg, index) => {
-					 		return <div key={index}><img src={ this.currentImg } /></div>
-					 	})
-					 }
+			<div>
+					<Nav />
+					<Carousel showArrows="false" showStatus="false" showIndicators="false" showThumbs="false" centerMode="true" centerSlidePercentage={20} infiniteLoop="true" autoPlay="true">
+						 {this.state.urlImage.map((currentImg, index) => {
+											 		console.log(currentImg);
+											 		return <div key={index}><img src={ currentImg } /></div>
+											 	})
+											 }
 					</Carousel>
+				<Footer />
+			</div>
 		);
 	}
 }
