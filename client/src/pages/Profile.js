@@ -14,25 +14,19 @@ class Profile extends Component {
 					<UserSidebar />
 
 					<div className="col s8">
-						<h3> Your List</h3>
-						<div className="card blue-grey darken-1 content">
+						<h3 id="title"> Your List</h3>
+						<div className="card indigo lighten-4 content">
 				        	<div className="card-content white-text">
 								<span className="card-title">Genre</span>
 								<div className="row">
-									<Movie />
-									<Movie />
-									<Movie />
-									<Movie />
-									<Movie />
-									<Movie />
-									<Movie />
-									<Movie />
-									<Movie />
+								
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<Footer />
 			</div>
 		)
 	}

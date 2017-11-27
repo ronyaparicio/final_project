@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import Movie from "../components/Movie";
+import Action from "../components/Action";
 import UserSidebar from "../components/UserSidebar";
 
-class Mainpage extends Component {
+class ActionPage extends Component {
     render() {
         return (
 
@@ -16,12 +16,12 @@ class Mainpage extends Component {
 					<UserSidebar />
 
 					<div className="col s8">
-						<h3 id="title"> Most Popular Movies/TV</h3>
+						<h3 id="title">Action</h3>
 						<div className="card indigo lighten-4 content">
 				        	<div className="card-content white-text">
 								<span className="card-title">All</span>
 								<div className="row">
-									<Movie />
+									<Action />
 								</div>
 							</div>
 						</div>
@@ -36,4 +36,4 @@ class Mainpage extends Component {
 }
 
 
-export default Mainpage;
+export default ActionPage;

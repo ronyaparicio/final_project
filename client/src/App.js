@@ -4,6 +4,7 @@ import Welcome from "./pages/Welcome";
 import Mainpage from "./pages/Mainpage";
 import Profile from "./pages/Profile";
 import LandingPage from "./pages/LandingPage";
+import ActionPage from "./pages/ActionPage";
 
 const App = () =>
     <Router>
@@ -13,6 +14,7 @@ const App = () =>
                 <Route exact path="/movies" component={Mainpage} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/welcome" component={LandingPage} />
+                <Route exact path="/Action" component={ActionPage} />
             </Switch>
         </div>
     </Router>;

@@ -1,19 +1,76 @@
+body {
+	font-family: 'PT Sans', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Noto Sans', sans-serif;
+}
+
 span {
 	text-align: center;
 }
 
+/*Welcome Page Logo*/
+#logoWelcome {
+	padding-top: 50px;
+	height: 150px;
+}
+
+/*Sign in form*/
+.signInForm {
+	margin-bottom: 0px;
+	
+}
+
+/*Input Field Placeholder text colors*/
+input::-webkit-input-placeholder {
+color: #646566 !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #646566 !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #646566 !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: #646566 !important;  
+}
+
+h3 {
+	color: #3f51b5;
+}
+
+#title {
+	text-align: center;
+}
+
+/*Text for movie details*/
 .card-content {
 	color: black;
 }
 
+/*Logo in the nav component*/
 #logo {
-	height: 80px;
-}
-
-#navbar {
 	height: 100px;
+	z-index: 10;
+	padding: 20px;
 }
 
+/*Navbar*/
+#navbar {
+	padding-bottom: 200px;
+}
+
+.signIn {
+	max-height: 100px;
+}
+ .nav-content {
+ 	margin-top: 10px;
+ }
+
+/*Add and remove from watch buttons*/
 #green {
 	background-color: green;
 }
@@ -21,3 +78,11 @@ span {
 #red {
 	background-color: red;
 }
+
+/*User SideBar*/
+.userList {
+	color: #3949ab;
+}
+
+
+
