@@ -4,6 +4,8 @@ import API from "../utils/API";
 import { Carousel } from "react-responsive-carousel";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import logo from ".././logo.png";
+
 
 
 
@@ -18,6 +20,13 @@ class SearchMoviesContainer extends Component {
 			urlBeginning: "https://image.tmdb.org/t/p/w370_and_h556_bestv2"
 		};
 	
+	handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+		};
+
 	componentDidMount() {
 		this.topMovies();
 		// this.setState({posterPath:posterPath});
@@ -30,29 +39,21 @@ class SearchMoviesContainer extends Component {
 			.catch(err => console.log(err));
 	};
 
-	// getPosterPath = () => {
-	// 	this.state.posterPath.map((movieList) => (
-							
-	// 							poster = {url, movieList.poster_path} 
-	// 					))
-	// };
-
-	// searchMovieDB = query => {
-	// 	API.moviedetails(query)
-	// 		.then(res => this.setState({ posterPath: res.data}))
-	// 		.catch(err => console.log(err));
-	// };
-
-
- // When the form is submitted, search the MovieDB API for the value of `this.state.search`
-	// handleFormSubmit = event => {
- //    	event.preventDefault();
- //    	this.searchMovieDB(this.state.search);
-	// };
-
-
- // <p className="legend">Legend {this.index + 1}</p>
-
+	handleSignIn = event => {
+		event.preventDefault();
+		API.login({
+			email: this.state.username,
+			password: this.state.loginPassword
+		}).then((res) => {
+			console.log('idk')
+			let data = res.data;
+			if (data && data.token) {
+				document.cookie = 'movieListUser=' + data.token + '; Path=/;'
+				localStorage.setItem('movieListUserId', data.id + '');
+				this.props.history.push('/movies');
+			}
+		})
+	};
  
 
 	render() {
@@ -63,8 +64,23 @@ class SearchMoviesContainer extends Component {
 
 		return (
 			<div>
-					<Nav />
-					<Carousel showArrows="false" showStatus="false" showIndicators="false" showThumbs="false" centerMode="true" centerSlidePercentage={20} infiniteLoop="true" autoPlay="true">
+					<nav id="navbar" className="indigo darken-1">
+    				<div className="nav-wrapper indigo darken-1">
+
+      					<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
+
+      					<ul id="nav-mobile" className="right">
+					        <li>
+					        	<form onSubmit={this.handleSignIn}>
+									<input className="signInForm" type="email" name="username" placeholder="email" value={this.state.username} onChange={this.handleInputChange}/>
+									<input className="signInForm" type="password" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleInputChange}/>
+									<input id="signiInButton" type="submit" />
+								</form>
+					        </li>
+					    </ul>
+    				</div>
+ 				</nav>
+					<Carousel showArrows={false} showStatus={false} showIndicators={false} showThumbs={false} centerMode={true} centerSlidePercentage={18} infiniteLoop={true} autoPlay={true}>
 						 {this.state.urlImage.map((currentImg, index) => {
 											 		console.log(currentImg);
 											 		return <div key={index}><img src={ currentImg } /></div>
