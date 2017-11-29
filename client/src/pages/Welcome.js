@@ -31,7 +31,6 @@ class Welcome extends Component {
         const { name, value } = event.target;
         var joined = this.state.genres.concat(value);
 				this.setState({ genres: joined });
-		console.log('state:', this.state);
     };
 
     handleFormSubmit = event => {
