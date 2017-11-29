@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API"
-class Movie extends Component {
+class Action extends Component {
 
 	constructor(){
 	    super();
@@ -13,11 +13,11 @@ class Movie extends Component {
 	}
 
 	componentDidMount() {
-		this.topMovies();
+		this.topAction();
 	}
 
-	topMovies = () => {
-        API.topMovies()
+	topAction = () => {
+        API.topAction()
             .then(res => this.setState({ result: res.data.results}))
             .catch(err => console.log(err));
     }
@@ -44,13 +44,13 @@ class Movie extends Component {
 				{
 					this.state.result.map((movieList) => (
 
-						<div className="col s4 movieBox">
+						<div className="col s4">
 							<div className="card">
 								<div className="card-image">
 									<img src={imgURL + movieList.poster_path} />
 									<span className="card-title"><a id={this.state.color} onClick={this.handleClick} className="btn-floating btn waves-effect waves-light"><i className="material-icons">{this.state.icon}</i></a></span>
 								</div>
-								<div className="card-content movieInfo">
+								<div className="card-content">
 										<p>Title: {movieList.title}</p>
 										<p>Genre: {movieList.genre_ids}</p>
 										<p>Rating: {movieList.vote_average}</p>
@@ -64,4 +64,4 @@ class Movie extends Component {
 		)
 	}
 }
-export default Movie;
+export default Action;
