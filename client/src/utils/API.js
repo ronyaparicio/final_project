@@ -32,6 +32,7 @@ export default {
     },
 
     userMovies: (userId)=> {
+        console.log('userMovies utils api', userId);
         return axios.get("/api/appRoutes/userMovies/"+ userId);
     }
 };
