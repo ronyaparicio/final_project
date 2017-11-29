@@ -63,17 +63,19 @@ class Mainpage extends Component {
 						<div className="nav-content indigo">
 							<ul className="tabs tabs-transparent">
 								<li className="tab"><a onClick={this.handleGenreChange}  className="active">All</a></li>
-								<li className="tab"><a name="28" onClick={this.handleGenreChange} value={28} >Action</a></li>
-								<li className="tab"><a name="12" onClick={this.handleGenreChange} value={12} >Adventure</a></li>
-								<li className="tab"><a name="16" onClick={this.handleGenreChange} value={16} >Animation</a></li>
-								<li className="tab"><a name="35" onClick={this.handleGenreChange} value={35} >Comedy</a></li>
-								<li className="tab"><a name="80" onClick={this.handleGenreChange} value={80} >Crime</a></li>
-								<li className="tab"><a name="99" onClick={this.handleGenreChange} value={99} >Documentary</a></li>
-								<li className="tab"><a name="18" onClick={this.handleGenreChange} value={18} >Drama</a></li>
-								<li className="tab"><a name="10751" onClick={this.handleGenreChange} value={10751} >Family</a></li>
-								<li className="tab"><a name="14" onClick={this.handleGenreChange} value={14} >Fantasy</a></li>
-								<li className="tab"><a name="36" onClick={this.handleGenreChange} value={36} >History</a></li>
-								<li className="tab"><a name="27" onClick={this.handleGenreChange} value={27} >Horror</a></li>
+
+								<li className="tab"><a name="28" onClick={this.handleGenreChange}  >Action</a></li>
+								<li className="tab"><a name="12" onClick={this.handleGenreChange}  >Adventure</a></li>
+								<li className="tab"><a name="16" onClick={this.handleGenreChange}  >Animation</a></li>
+								<li className="tab"><a name="35" onClick={this.handleGenreChange}  >Comedy</a></li>
+								<li className="tab"><a name="80" onClick={this.handleGenreChange}  >Crime</a></li>
+								<li className="tab"><a name="99" onClick={this.handleGenreChange}  >Documentary</a></li>
+								<li className="tab"><a name="18" onClick={this.handleGenreChange}  >Drama</a></li>
+								<li className="tab"><a name="10751" onClick={this.handleGenreChange}  >Family</a></li>
+								<li className="tab"><a name="14" onClick={this.handleGenreChange}  >Fantasy</a></li>
+								<li className="tab"><a name="36" onClick={this.handleGenreChange}  >History</a></li>
+								<li className="tab"><a name="27" onClick={this.handleGenreChange}  >Horror</a></li>
+
 							</ul>
 						</div>
 					</nav>
