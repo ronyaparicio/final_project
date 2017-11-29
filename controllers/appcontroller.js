@@ -8,7 +8,17 @@ module.exports = {
 
         })
     },
-    saveUserMovie: ()=> {
+
+    saveUserMovie: (userId, movieId)=> {
+    	console.log(db.Users);
+    	db.Users.findOneAndUpdate({_id: userId}, 
+    		{"$push": {movies: movieId} },
+    		function(error, raw) {
+    			if (error) return error;
+    			console.log(raw);
+    		}
+    	)
+    	
 
     }
 

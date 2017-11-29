@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../utils/API";
 
 class Movie extends Component {
 
@@ -8,9 +9,11 @@ class Movie extends Component {
 		userMovies: []
 	};
 
-	handleClick = (id) => {
-		console.log("It worked", id);
-
+	handleClick = (movieId) => {
+		// console.log("It worked", movieId);
+		let userId = localStorage.getItem("movieListUserId")
+		// console.log(userId)
+		API.saveMovieToUser(userId, movieId)
 	}
 
 	render() {

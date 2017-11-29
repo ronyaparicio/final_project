@@ -36,7 +36,11 @@ export default {
     },
 
     saveMovieToUser: (userId, movieId) => {
-        return axios.post("/api/user/" + userId + "/movies/" + movieId);
+        var userInfo = {
+            userId: userId,
+            movieId: movieId
+        }
+        return axios.post("/api/appRoutes/savemovie", userInfo);
     }
 };
 
