@@ -21,13 +21,18 @@ export default {
       return axios.get(SEARCHURL);
     },
 
-    topMovies: function(query) {
+    topMovies: function(genre) {
         return axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=dfc918e89334423f004fdc14fda75e92&sort_by=popularity.desc&page=1`);
 
     },
 
-    topAction: function(query) {
-        return axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=dfc918e89334423f004fdc14fda75e92&sort_by=popularity.desc&with_genres=28`);
+    movieSearch: function(genre) {
+        console.log(genre)
+        return axios.get('https://api.themoviedb.org/3/discover/movie?api_key=dfc918e89334423f004fdc14fda75e92&sort_by=popularity.desc&with_genres='+ genre);
+    },
+
+    userMovies: (userId)=> {
+        return axios.get("/api/appRoutes/userMovies/"+ userId);
     }
 };
 

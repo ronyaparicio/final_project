@@ -28,7 +28,4 @@ router.post("/login", function (req,res) {
 
 });
 
-// router.route("/")
-//   .post(authenticationController.create);
-// Matches with "/api/books/:id"
 module.exports = router;

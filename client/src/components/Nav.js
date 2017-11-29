@@ -12,11 +12,6 @@ const Nav = () =>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><a href="/profile">Profile</a></li>
       </ul>
-      <ul className="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
     </div>
     <div className="nav-content indigo">
       <ul className="tabs tabs-transparent">

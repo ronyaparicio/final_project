@@ -1,40 +1,12 @@
 import React, { Component } from "react";
-import API from "../utils/API"
+
 class Movie extends Component {
 
-	constructor(){
-	    super();
-		this.state = {
-	        
-	        color: 'green',
-	        icon: 'add',
-	        result: []
-	    };
-	}
-
-	componentDidMount() {
-		this.topMovies();
-	}
-
-	topMovies = () => {
-        API.topMovies()
-            .then(res => this.setState({ result: res.data.results}))
-            .catch(err => console.log(err));
-    }
 	
-    handleClick = event => {
-        if (this.state.color === 'green'){
-            this.setState({color: 'red'});
-        } else {
-            this.setState({color: 'green'});
-        }
-
-        if (this.state.icon === 'add') {
-        		this.setState({icon: 'remove'});
-        } else {
-        	this.setState({icon: 'add'});
-        }
-    }
+	state = {
+		result: [],
+		userMovies: []
+	};
 
 	render() {
 		const imgURL = "https://image.tmdb.org/t/p/w300/"
@@ -42,18 +14,19 @@ class Movie extends Component {
         return (
 			<div>
 				{
-					this.state.result.map((movieList) => (
+					this.props.movies.map((movieList) => (
 
-						<div className="col s4 movieBox">
+						<div key={movieList.id}className="col s3 movieBox">
 							<div className="card">
 								<div className="card-image">
 									<img src={imgURL + movieList.poster_path} />
-									<span className="card-title"><a id={this.state.color} onClick={this.handleClick} className="btn-floating btn waves-effect waves-light"><i className="material-icons">{this.state.icon}</i></a></span>
+									<span className="card-title"><a onClick={this.handleClick} className="btn-floating btn waves-effect waves-light"><i className="material-icons"></i></a></span>
 								</div>
 								<div className="card-content movieInfo">
 										<p>Title: {movieList.title}</p>
 										<p>Genre: {movieList.genre_ids}</p>
 										<p>Rating: {movieList.vote_average}</p>
+										<p>ID: {movieList.id}</p>
 								</div>
 							</div>
 						</div>
