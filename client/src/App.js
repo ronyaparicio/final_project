@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Welcome from "./pages/Welcome";
 import Mainpage from "./pages/Mainpage";
 import Profile from "./pages/Profile";
-import LandingPage from "./pages/LandingPage";
+// import LandingPage from "./pages/LandingPage";
 import ActionPage from "./pages/ActionPage";
 
 const App = () =>
