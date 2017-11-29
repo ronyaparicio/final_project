@@ -8,8 +8,14 @@ class Movie extends Component {
 		userMovies: []
 	};
 
+	handleClick = (id) => {
+		console.log("It worked", id);
+
+	}
+
 	render() {
 		const imgURL = "https://image.tmdb.org/t/p/w300/"
+
 
         return (
 			<div>
@@ -20,7 +26,7 @@ class Movie extends Component {
 							<div className="card">
 								<div className="card-image">
 									<img src={imgURL + movieList.poster_path} />
-									<span className="card-title"><a onClick={this.handleClick} className="btn-floating btn waves-effect waves-light"><i className="material-icons"></i></a></span>
+									<span className="card-title"><a onClick={() => {this.handleClick(movieList.id)}} className="btn-floating btn waves-effect waves-light"><i className="material-icons"></i></a></span>
 								</div>
 								<div className="card-content movieInfo">
 										<p>Title: {movieList.title}</p>

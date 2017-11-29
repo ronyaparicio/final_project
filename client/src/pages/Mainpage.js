@@ -64,7 +64,7 @@ class Mainpage extends Component {
 							<ul className="tabs tabs-transparent">
 								<li className="tab"><a onClick={this.handleGenreChange}  className="active">All</a></li>
 								<li className="tab"><a name="28" onClick={this.handleGenreChange} value={28} >Action</a></li>
-								<li className="tab"><a name="genre" onClick={this.handleGenreChange} value={this.state.Adventure} >Adventure</a></li>
+								<li className="tab"><a name="12" onClick={this.handleGenreChange} value={12} >Adventure</a></li>
 								<li className="tab"><a name="16" onClick={this.handleGenreChange} value={16} >Animation</a></li>
 								<li className="tab"><a name="35" onClick={this.handleGenreChange} value={35} >Comedy</a></li>
 								<li className="tab"><a name="80" onClick={this.handleGenreChange} value={80} >Crime</a></li>
