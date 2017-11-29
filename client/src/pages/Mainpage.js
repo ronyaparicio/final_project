@@ -13,7 +13,15 @@ class Mainpage extends Component {
 		Adventure: 12
 	}
 
+	// regex = () => {
+ //          const str = document.getElementById("title").innerHTML; 
+ //          const txt = str.replace(/28/i,"Action");
+ //          document.getElementById("demo").innerHTML = txt;
+ //      }; 
+
 	componentDidMount() {
+		// regex();
+
 		API.movieSearch(
 			 this.state.genre
 		).then((res) => {
@@ -24,6 +32,8 @@ class Mainpage extends Component {
 		})
 		let userId = localStorage.getItem('movieListUserId');
 		API.userMovies(userId);
+
+		
 	}
 
 	genreChange = (genre)=> {

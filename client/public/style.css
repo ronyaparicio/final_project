@@ -70,6 +70,9 @@ h3 {
  	margin-top: 10px;
  }
 
+.nav-extended {
+	padding-bottom: 25px;
+}
 /*Add and remove from watch buttons*/
 #green {
 	background-color: green;

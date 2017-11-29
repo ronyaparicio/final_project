@@ -13,14 +13,7 @@ const Nav = () =>
         <li><a href="/profile">Profile</a></li>
       </ul>
     </div>
-    <div className="nav-content indigo">
-      <ul className="tabs tabs-transparent">
-        <li className="tab"><a className="active" href="#test1">All</a></li>
-        <li className="tab"><a href="#test2">Action</a></li>
-        <li className="tab"><a href="#test3">Drama</a></li>
-        <li className="tab"><a href="#test4">Comedy</a></li>
-      </ul>
-    </div>
+    
   </nav>
 </div>
 export default Nav;
