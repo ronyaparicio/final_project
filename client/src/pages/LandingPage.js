@@ -64,7 +64,7 @@ class SearchMoviesContainer extends Component {
 		return (
 			<div>
 					<Nav />
-					<Carousel showArrows="false" showStatus="false" showIndicators="false" showThumbs="false" centerMode="true" centerSlidePercentage={20} infiniteLoop="true" autoPlay="true">
+					<Carousel showArrows={false} showStatus={false} showIndicators={false} showThumbs={false} centerMode={true} centerSlidePercentage={18} infiniteLoop={true} autoPlay={true}>
 						 {this.state.urlImage.map((currentImg, index) => {
 											 		console.log(currentImg);
 											 		return <div key={index}><img src={ currentImg } /></div>
