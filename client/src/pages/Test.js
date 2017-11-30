@@ -60,7 +60,8 @@ class SearchMoviesContainer extends Component {
 
 	render() {
 			this.state.posterPath.map((currentMovie) => {
-	        this.state.urlImage.push(this.state.urlBeginning + currentMovie.poster_path);
+	        this.state.urlImage.push(this.state.urlBeginning + currentMovie.backdrop_path);
+	        console.log(currentMovie);
 					// this.setState({ movieList: urlImage })
 			})
 
@@ -70,35 +71,25 @@ class SearchMoviesContainer extends Component {
     				<div className="nav-wrapper indigo darken-1">
 
       					<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
-      					<div className="row">
-				        	<form className="col s12" onSubmit={this.handleSignIn}>
-				        		<div className="row">
-				        			<div className="col s3">
-				        				<a className="waves-effect waves-light yellow lighten-3 indigo-text btn right" style={{top: '50px'}} id="signiInButton">Sign-up</a>
-				        			</div>
-			      					<div className="input-field col s3 offset-s9">
-												<input className="validate" type="email" name="username" value={this.state.username} onChange={this.handleInputChange}/>
-												<label for="email">Email</label>
-											</div>
-											<div className="input-field col s3 offset-s9">
-												<input className="validate" type="password" name="loginPassword" value={this.state.loginPassword} onChange={this.handleInputChange}/>
-												<label for="password">password</label>
-											</div>
-											<input className="waves-effect waves-light yellow lighten-3 indigo-text btn right" style={{right: '11px'}} id="signiInButton" type="submit" />
-										</div>
-									</form>
-	    				</div>
-	    			</div>
+
+      					<ul id="nav-mobile" className="right">
+					        <li>
+					        	<form onSubmit={this.handleSignIn}>
+									<input className="signInForm" type="email" name="username" placeholder="email" value={this.state.username} onChange={this.handleInputChange}/>
+									<input className="signInForm" type="password" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleInputChange}/>
+									<input id="signiInButton" type="submit" />
+								</form>
+					        </li>
+					    </ul>
+    				</div>
  				</nav>
- 				<div className="indigo darken-1">
-					<Carousel showArrows={false} showStatus={false} showIndicators={false} showThumbs={false} centerMode={true} centerSlidePercentage={18} infiniteLoop={true} autoPlay={true}>
+					<Carousel showArrows={false} showStatus={false} showIndicators={false} showThumbs={false} centerMode={true} infiniteLoop={true} autoPlay={true}>
 						 {this.state.urlImage.map((currentImg, index) => {
 											 		console.log(currentImg);
 											 		return <div key={index}><img src={ currentImg } /></div>
 											 	})
 											 }
 					</Carousel>
-				</div>
 				<Footer />
 			</div>
 		);
