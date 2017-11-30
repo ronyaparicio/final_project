@@ -10,21 +10,35 @@ class Mainpage extends Component {
 	state = {
 		genre: 28,
 		movies: [],
-		Adventure: 12
+		Adventure: 12,
+		userMovies: []
 	}
 
 	componentDidMount() {
+		let userId = localStorage.getItem('movieListUserId');
 		API.movieSearch(
 			 this.state.genre
 		).then((res) => {
+			console.log('movie search success:', res);
 			this.setState({ movies: res.data.results })
-			
+			API.userMovies(userId)
+				.then(moviesResponse => {
+					console.log('moviesResponse', moviesResponse);
+					this.setState({
+						userMovies: moviesResponse.data.movies
+					})
+					console.log("user movies state" , this.state.userMovies);
+				})
+				.catch(moviesError => {
+					console.log('moviesError', moviesError);
+				});
 		}).catch((err)=> {
-			console.log(err)
+			console.log('movie search error:', err);
 		})
-		let userId = localStorage.getItem('movieListUserId');
-		API.userMovies(userId);
+		
 	}
+
+	
 
 	genreChange = (genre)=> {
 		API.movieSearch(
