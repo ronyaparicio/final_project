@@ -41,7 +41,9 @@ export default {
             movieId: movieId
         }
         return axios.post("/api/appRoutes/savemovie", userInfo);
-    }
+    },
+
+    
 };
 
 

@@ -3,8 +3,9 @@ const ensureAuthenticated = require('./ensureauth.js');
 const dbORM = require("../../controllers/appcontroller");
 
 
-router.get('/userMovies/:id', function(req, res) {
+router.get('/userMovies', function(req, res) {
     console.log(req.params.id);
+    dbORM.getUserMovies()
 });
 
 router.post('/savemovie', function(req, res){
