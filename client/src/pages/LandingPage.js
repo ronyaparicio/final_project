@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-// import Carousel from "../Components/Carousel";
 import { Carousel } from "react-responsive-carousel";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
@@ -72,8 +71,11 @@ class SearchMoviesContainer extends Component {
 			<div>
 					<nav id="navbar" className="indigo darken-1">
     				<div className="nav-wrapper indigo darken-1">
-
+    					<div className="col s2">
+    						<a href="/Welcome" className="waves-effect waves-light yellow lighten-3 indigo-text btn left" style={{top: '70px', left:'100px'}} id="signiInButton">Sign-up</a>
+    					</div>
       					<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
+<<<<<<< HEAD
       					<div className="row">
 				        	<form className="col s12" onSubmit={this.handleSignIn}>
 				        		<div className="row">
@@ -92,9 +94,13 @@ class SearchMoviesContainer extends Component {
 										</div>
 									</form>
 	    				</div>
+=======
+      					
+>>>>>>> 67f3917c485c5cada01f9c380525e1d46e27a7aa
 	    			</div>
  				</nav>
  				<div className="indigo darken-1">
+ 					      					
 					<Carousel showArrows={false} showStatus={false} showIndicators={false} showThumbs={false} centerMode={true} centerSlidePercentage={18} infiniteLoop={true} autoPlay={true}>
 						 {this.state.urlImage.map((currentImg, index) => {
 											 		console.log(currentImg);
@@ -102,6 +108,22 @@ class SearchMoviesContainer extends Component {
 											 	})
 											 }
 					</Carousel>
+					<div className="row indigo darken-1">
+	        	<form className="col s12" onSubmit={this.handleSignIn}>
+	        		<div className="row">
+	        			
+      					<div className="input-field col s4">
+									<input className="validate" type="email" name="username" value={this.state.username} onChange={this.handleInputChange}/>
+									<label for="email">Email</label>
+								</div>
+								<div className="input-field col s4">
+									<input className="validate" type="password" name="loginPassword" value={this.state.loginPassword} onChange={this.handleInputChange}/>
+									<label for="password">password</label>
+								</div>
+								<input className="waves-effect waves-light yellow lighten-3 indigo-text btn" style={{top: '20px'}} id="signiInButton" type="submit" />
+							</div>
+						</form>
+					</div>
 				</div>
 				<Footer />
 			</div>

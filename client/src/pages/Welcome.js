@@ -74,6 +74,7 @@ class Welcome extends Component {
     render() {
 		
         return (
+<<<<<<< HEAD
             <div>
             	<nav id="navbar" className="indigo darken-1">
     				<div className="nav-wrapper indigo darken-1">
@@ -87,6 +88,14 @@ class Welcome extends Component {
 					    </ul>
     				</div>
  				</nav>
+=======
+	        <div>
+	        	<nav id="navbar" className="indigo darken-1">
+
+	  					<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
+		 				</nav>
+
+>>>>>>> 67f3917c485c5cada01f9c380525e1d46e27a7aa
 
 
  				 <div className="row">

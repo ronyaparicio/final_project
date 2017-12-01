@@ -87,6 +87,7 @@ class Mainpage extends Component {
 						<div className="nav-content indigo">
 							<ul className="tabs tabs-transparent">
 								<li className="tab"><a onClick={this.handleGenreChange}  className="active">All</a></li>
+
 								<li className="tab"><a name="28" onClick={this.handleGenreChange}  >Action</a></li>
 								<li className="tab"><a name="12" onClick={this.handleGenreChange}  >Adventure</a></li>
 								<li className="tab"><a name="16" onClick={this.handleGenreChange}  >Animation</a></li>
@@ -98,6 +99,7 @@ class Mainpage extends Component {
 								<li className="tab"><a name="14" onClick={this.handleGenreChange}  >Fantasy</a></li>
 								<li className="tab"><a name="36" onClick={this.handleGenreChange}  >History</a></li>
 								<li className="tab"><a name="27" onClick={this.handleGenreChange}  >Horror</a></li>
+
 							</ul>
 						</div>
 					</nav>

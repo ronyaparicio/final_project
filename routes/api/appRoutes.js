@@ -1,12 +1,18 @@
 const router = require("express").Router();
 const ensureAuthenticated = require('./ensureauth.js');
-const appController = require('../../controllers/appcontroller.js');
+const dbORM = require("../../controllers/appcontroller");
 
 
-router.get('/userMovies/:id', function(req, res) {
-    console.log('res is - '+ res);
-    return appController.getUserMovies(req,res)
+router.get('/userMovies', function(req, res) {
+    console.log(req.params.id);
+    dbORM.getUserMovies()
 });
+
+router.post('/savemovie', function(req, res){
+	var userId = req.body.userId;
+	var movieId = req.body.movieId;
+	dbORM.saveUserMovie(userId, movieId);
+})
 
 
 module.exports = router;
