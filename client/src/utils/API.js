@@ -31,6 +31,10 @@ export default {
         return axios.get('https://api.themoviedb.org/3/discover/movie?api_key=dfc918e89334423f004fdc14fda75e92&sort_by=popularity.desc&with_genres='+ genre);
     },
 
+    findById: function(movieId) {
+        return axios.get(`https://api.themoviedb.org/3/movie/284053?api_key=dfc918e89334423f004fdc14fda75e92&language=en-US`)
+    },
+
     userMovies: (userId)=> {
         return axios.get("/api/appRoutes/userMovies/"+ userId);
     }

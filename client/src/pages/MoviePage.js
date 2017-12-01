@@ -7,10 +7,19 @@ import logo from ".././logo.png"
 
 class MoviePage extends Component {
 	state = {
-		
+		result: {}
 	}
 
+	// componentDidMount() {
+	// 	API.findById(
+	// 		this.
+	// 	)
+	// }
+
 	render() {
+
+		const imgURL = "https://image.tmdb.org/t/p/w300/"
+
 		return (
 			<div>
 				<Nav />

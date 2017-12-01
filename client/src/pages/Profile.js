@@ -11,10 +11,9 @@ class Profile extends Component {
 				<Nav />
 
 				<div className="row">
-					<UserSidebar />
-
-					<div className="col s8">
-						<h3 id="title"> Your List</h3>
+					
+					<div className="col s8 offset-s2">
+						<h3 id="title">Your List</h3>
 						<div className="card indigo lighten-4 content">
 				        	<div className="card-content white-text">
 								<span className="card-title">Genre</span>
