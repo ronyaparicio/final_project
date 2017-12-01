@@ -84,5 +84,32 @@ h3 {
 	color: #3949ab;
 }
 
+@media only screen and (max-width: 600px) {
+    .col.s3 {
+        min-height: 169px;
+    }
+}
 
+@media only screen and (min-width: 601px) and (max-width: 749px) {
+    .col.s3 {
+        min-height: 206px;
+    }
+}
 
+@media only screen and (min-width: 750px) and (max-width: 992px) {
+    .col.s3 {
+        min-height: 279px;
+    }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1199px) {
+    .col.s3 {
+        min-height: 279px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .col.s3 {
+        min-height: 375px;
+    }
+}
