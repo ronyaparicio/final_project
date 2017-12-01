@@ -74,23 +74,12 @@ class Welcome extends Component {
     render() {
 		
         return (
-            <div>
-            	<nav id="navbar" className="indigo darken-1">
-    				<div className="nav-wrapper indigo darken-1">
+	        <div>
+	        	<nav id="navbar" className="indigo darken-1">
 
-      					<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
+	  					<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
+		 				</nav>
 
-      					<ul id="nav-mobile" className="right">
-					        <li>
-					        	<form onSubmit={this.handleSignIn}>
-									<input className="signInForm" type="email" name="username" placeholder="email" value={this.state.username} onChange={this.handleInputChange}/>
-									<input className="signInForm" type="password" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleInputChange}/>
-									<input id="signiInButton" type="submit" />
-								</form>
-					        </li>
-					    </ul>
-    				</div>
- 				</nav>
 
 
  				 <div className="row">

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-// import Carousel from "../Components/Carousel";
 import { Carousel } from "react-responsive-carousel";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
@@ -69,7 +68,7 @@ class SearchMoviesContainer extends Component {
 					<nav id="navbar" className="indigo darken-1">
     				<div className="nav-wrapper indigo darken-1">
     					<div className="col s2">
-    						<a className="waves-effect waves-light yellow lighten-3 indigo-text btn left" style={{top: '70px', left:'100px'}} id="signiInButton">Sign-up</a>
+    						<a href="/Welcome" className="waves-effect waves-light yellow lighten-3 indigo-text btn left" style={{top: '70px', left:'100px'}} id="signiInButton">Sign-up</a>
     					</div>
       					<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
       					
