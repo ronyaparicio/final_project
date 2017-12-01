@@ -30,11 +30,13 @@ class Movie extends Component {
 				{
 					this.props.movies.map((movieList) => (
 
-						<div key={movieList.id}className="col s3 movieBox">
+						<div key={movieList.id} className="col s3 movieBox" >
 							<div className="card">
-								<div className="card-image">
-									<a href={MPR + movieList.id}><img id={movieList.id} onClick={() => {this.posterOnClick(movieList.id)}} src={imgURL + movieList.poster_path} /></a>
-									<span className="card-title"><a onClick={() => {this.handleClick(movieList.id)}} className="btn-floating btn waves-effect waves-light"><i className="material-icons">add</i></a></span>
+
+								<div className="card-image responsive-img" >
+									<img src={imgURL + movieList.poster_path} />
+									<span className="card-title"><a onClick={() => {this.handleClick(movieList.id)}} className="btn-floating btn waves-effect waves-light"><i className="material-icons"></i></a></span>
+
 								</div>
 								<div className="card-content movieInfo">
 										<p>Title: {movieList.title}</p>
