@@ -69,58 +69,46 @@ class SearchMoviesContainer extends Component {
 
 		return (
 			<div>
-					<nav id="navbar" className="indigo darken-1">
-    				<div className="nav-wrapper indigo darken-1">
-    					<div className="col s2">
-    						<a href="/Welcome" className="waves-effect waves-light yellow lighten-3 indigo-text btn left" style={{top: '70px', left:'100px'}} id="signiInButton">Sign-up</a>
-    					</div>
-      					<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
-      					<div className="row">
-				        	<form className="col s12" onSubmit={this.handleSignIn}>
-				        		<div className="row">
-				        			<div className="col s3">
-				        				<a className="waves-effect waves-light yellow lighten-3 indigo-text btn right" onClick={this.signUp} style={{top: '50px'}} id="signiInButton">Sign-up</a>
-				        			</div>
-			      					<div className="input-field col s3 offset-s9">
-												<input className="validate" type="email" name="username" value={this.state.username} onChange={this.handleInputChange}/>
-												<label for="email">Email</label>
-											</div>
-											<div className="input-field col s3 offset-s9">
-												<input className="validate" type="password" name="loginPassword" value={this.state.loginPassword} onChange={this.handleInputChange}/>
-												<label for="password">password</label>
-											</div>
-											<input className="waves-effect waves-light yellow lighten-3 indigo-text btn right" style={{right: '11px'}} id="signiInButton" type="submit" />
-										</div>
-									</form>
-	    				</div>
-	    			</div>
- 				</nav>
- 				<div className="indigo darken-1">
- 					      					
-					<Carousel showArrows={false} showStatus={false} showIndicators={false} showThumbs={false} centerMode={true} centerSlidePercentage={18} infiniteLoop={true} autoPlay={true}>
-						 {this.state.urlImage.map((currentImg, index) => {
-											 		console.log(currentImg);
-											 		return <div key={index}><img src={ currentImg } /></div>
-											 	})
-											 }
-					</Carousel>
-					<div className="row indigo darken-1">
-	        	<form className="col s12" onSubmit={this.handleSignIn}>
-	        		<div className="row">
-	        			
-      					<div className="input-field col s4">
-									<input className="validate" type="email" name="username" value={this.state.username} onChange={this.handleInputChange}/>
-									<label for="email">Email</label>
-								</div>
-								<div className="input-field col s4">
-									<input className="validate" type="password" name="loginPassword" value={this.state.loginPassword} onChange={this.handleInputChange}/>
-									<label for="password">password</label>
-								</div>
-								<input className="waves-effect waves-light yellow lighten-3 indigo-text btn" style={{top: '20px'}} id="signiInButton" type="submit" />
-							</div>
-						</form>
+				<nav id="navbar" className="indigo darken-1">
+					<div className="nav-wrapper indigo darken-1">
+						<div className="col s2">
+							<ul id="nav-mobile" className="right hide-on-med-and-down">
+						        <li><a href="/Welcome">Sign Up</a></li>
+						    </ul>
+						</div>
+							<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
+							
 					</div>
+				</nav>
+				<div id="form" className="row indigo darken-1">
+		        	<form className="col s12" onSubmit={this.handleSignIn}>
+		        		<div className="row">
+		        			
+	      					<div className="input-field col s4">
+								<input className="validate" type="email" name="username" value={this.state.username} onChange={this.handleInputChange}/>
+								<label htmlFor="email">Email</label>
+							</div>
+							<div className="input-field col s4">
+								<input className="validate" type="password" name="loginPassword" value={this.state.loginPassword} onChange={this.handleInputChange}/>
+								<label htmlFor="password">password</label>
+							</div>
+							<input className="waves-effect waves-light indigo lighten-3 indigo-text btn" style={{top: '20px'}} id="signiInButton" type="submit" />
+						</div>
+					</form>
 				</div>
+ 				
+	 				<div id="carousel" className="indigo lighten-3">
+	 					      					
+						<Carousel showArrows={false} showStatus={false} showIndicators={false} showThumbs={false} centerMode={true} centerSlidePercentage={18} infiniteLoop={true} autoPlay={true}>
+							 {this.state.urlImage.map((currentImg, index) => {
+												 		console.log(currentImg);
+												 		return <div key={index}><img src={ currentImg } /></div>
+												 	})
+												 }
+						</Carousel>
+					
+					</div>
+				
 				<Footer />
 			</div>
 		);
