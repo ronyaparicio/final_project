@@ -56,6 +56,10 @@ class SearchMoviesContainer extends Component {
 			}
 		})
 	};
+
+	signUp = ()=> {
+		this.props.history.push('/welcome');
+	}
  
 
 	render() {
@@ -74,7 +78,7 @@ class SearchMoviesContainer extends Component {
 				        	<form className="col s12" onSubmit={this.handleSignIn}>
 				        		<div className="row">
 				        			<div className="col s3">
-				        				<a className="waves-effect waves-light yellow lighten-3 indigo-text btn right" style={{top: '50px'}} id="signiInButton">Sign-up</a>
+				        				<a className="waves-effect waves-light yellow lighten-3 indigo-text btn right" onClick={this.signUp} style={{top: '50px'}} id="signiInButton">Sign-up</a>
 				        			</div>
 			      					<div className="input-field col s3 offset-s9">
 												<input className="validate" type="email" name="username" value={this.state.username} onChange={this.handleInputChange}/>

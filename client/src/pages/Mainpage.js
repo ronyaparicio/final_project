@@ -11,7 +11,8 @@ class Mainpage extends Component {
 		genre: 28,
 		movies: [],
 		Adventure: 12,
-		userMovies: []
+		userMovies: [],
+		displayMovies: []
 	}
 
 	componentDidMount() {
@@ -19,6 +20,7 @@ class Mainpage extends Component {
 		API.movieSearch(
 			 this.state.genre
 		).then((res) => {
+
 			console.log('movie search success:', res);
 			this.setState({ movies: res.data.results })
 			API.userMovies(userId)
@@ -27,6 +29,13 @@ class Mainpage extends Component {
 					this.setState({
 						userMovies: moviesResponse.data.movies
 					})
+					this.state.movies.forEach(element => {
+						if (!this.state.userMovies.includes(element.id)) {
+							this.state.displayMovies.push(element)
+						}
+
+						
+					});
 					console.log("user movies state" , this.state.userMovies);
 				})
 				.catch(moviesError => {
@@ -72,6 +81,7 @@ class Mainpage extends Component {
 							<a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
 							<ul id="nav-mobile" className="right hide-on-med-and-down">
 								<li><a href="/profile">Profile</a></li>
+								<li><a href="/movies">Movies</a></li>
 							</ul>
 						</div>
 						<div className="nav-content indigo">

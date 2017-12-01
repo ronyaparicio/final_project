@@ -82,11 +82,7 @@ class Welcome extends Component {
 
       					<ul id="nav-mobile" className="right">
 					        <li>
-					        	<form onSubmit={this.handleSignIn}>
-									<input className="signInForm" type="email" name="username" placeholder="email" value={this.state.username} onChange={this.handleInputChange}/>
-									<input className="signInForm" type="password" name="loginPassword" placeholder="Password" value={this.state.loginPassword} onChange={this.handleInputChange}/>
-									<input id="signiInButton" type="submit" />
-								</form>
+					        	
 					        </li>
 					    </ul>
     				</div>
