@@ -9,11 +9,12 @@ class Profile extends Component {
 		return (
 			<div>
 				<Nav />
+				<div className="indigo darken-1"><br /></div>
 
 				<div className="row">
-					<UserSidebar />
+					
 
-					<div className="col s8">
+					<div className="col s8 offset-s2">
 						<h3 id="title"> Your List</h3>
 						<div className="card indigo lighten-4 content">
 				        	<div className="card-content white-text">

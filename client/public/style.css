@@ -63,6 +63,7 @@ h3 {
 	padding-bottom: 200px;
 }
 
+
 .signIn {
 	max-height: 100px;
 }
@@ -83,6 +84,11 @@ h3 {
 .userList {
 	color: #3949ab;
 }
+/*Carousel*/
+#carousel {
+	margin-top: 0px;
+}
 
-
-
+#form {
+	margin-bottom: 0px;
+}
