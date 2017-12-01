@@ -16,35 +16,49 @@ class Mainpage extends Component {
 	}
 
 	componentDidMount() {
+		
+		this.renderMovies();
+		
+	}
+
+
+	renderMovies = ()=> {
 		let userId = localStorage.getItem('movieListUserId');
 		API.movieSearch(
-			 this.state.genre
+			this.state.genre
 		).then((res) => {
 
 			console.log('movie search success:', res);
 			this.setState({ movies: res.data.results })
 			API.userMovies(userId)
 				.then(moviesResponse => {
+					let moviesArray = [];
 					console.log('moviesResponse', moviesResponse);
 					this.setState({
 						userMovies: moviesResponse.data.movies
 					})
 					this.state.movies.forEach(element => {
 						if (!this.state.userMovies.includes(element.id)) {
-							this.state.displayMovies.push(element)
+
+
+							moviesArray.push(element)
+
 						}
 
-						
 					});
-					console.log("user movies state" , this.state.userMovies);
+
+					this.setState({ displayMovies: moviesArray }, this.forceUpdate()
+					);
+
+					console.log(this.state.displayMovies);
 				})
 				.catch(moviesError => {
 					console.log('moviesError', moviesError);
 				});
-		}).catch((err)=> {
+		}).catch((err) => {
 			console.log('movie search error:', err);
 		})
-		
+
 	}
 
 	
@@ -58,15 +72,16 @@ class Mainpage extends Component {
 		}).catch((err) => {
 			console.log(err)
 		})
+		this.renderMovies();
 	}
 	handleGenreChange = (event)=> {
 		console.log(event.target);
 		let { name } = event.target;
 		console.log(name)
-		this.genreChange(name)
+		this.genreChange(name);
 		this.setState({
 			genre: name
-		});
+		}, this.forceUpdate);
 		console.log(this.state.genre);
 	}
 
@@ -110,8 +125,8 @@ class Mainpage extends Component {
 							<h3 id="title">{this.state.genre}</h3>
 							<div className="card indigo lighten-4 content">
 								<div className="card-content white-text">
-									<div className="row">
-										<Movie movies={this.state.movies} />
+									<div className="row" id="movies">
+										<Movie movies={this.state.displayMovies} />
 									</div>
 								</div>
 							</div>

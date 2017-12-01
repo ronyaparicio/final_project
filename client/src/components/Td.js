@@ -2,9 +2,7 @@ import React, { Component } from "react";
 
 class Td extends Component {
 
-    state = {
-        userMovies: []
-    };
+    
 
 
 

@@ -4,12 +4,8 @@ import Welcome from "./pages/Welcome";
 import Mainpage from "./pages/Mainpage";
 import Profile from "./pages/Profile";
 import LandingPage from "./pages/LandingPage";
-<<<<<<< HEAD
-import Test from "./pages/Test";
+// import Test from "./pages/Test";
 
-=======
-import ActionPage from "./pages/ActionPage";
->>>>>>> 67f3917c485c5cada01f9c380525e1d46e27a7aa
 
 const App = () =>
     <Router>
@@ -19,11 +15,8 @@ const App = () =>
                 <Route exact path="/movies" component={Mainpage} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/welcome" component={Welcome} />
-<<<<<<< HEAD
-                <Route exact path="/test" component={Test} />
-=======
->>>>>>> 67f3917c485c5cada01f9c380525e1d46e27a7aa
+                {/* <Route exact path="/test" component={Test} /> */}
             </Switch>
         </div>
-    </Router>;
+    </Router>
 export default App;

@@ -75,7 +75,6 @@ class SearchMoviesContainer extends Component {
     						<a href="/Welcome" className="waves-effect waves-light yellow lighten-3 indigo-text btn left" style={{top: '70px', left:'100px'}} id="signiInButton">Sign-up</a>
     					</div>
       					<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
-<<<<<<< HEAD
       					<div className="row">
 				        	<form className="col s12" onSubmit={this.handleSignIn}>
 				        		<div className="row">
@@ -94,9 +93,6 @@ class SearchMoviesContainer extends Component {
 										</div>
 									</form>
 	    				</div>
-=======
-      					
->>>>>>> 67f3917c485c5cada01f9c380525e1d46e27a7aa
 	    			</div>
  				</nav>
  				<div className="indigo darken-1">
