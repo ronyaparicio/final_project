@@ -11,8 +11,7 @@ span {
 
 /*Welcome Page Logo*/
 #logoWelcome {
-	padding-top: 50px;
-	height: 150px;
+	height: 60px;
 }
 
 /*Sign in form*/
@@ -20,6 +19,14 @@ span {
 	margin-bottom: 0px;
 	
 }
+
+.footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+  }
 
 /*Input Field Placeholder text colors*/
 input::-webkit-input-placeholder {
@@ -59,7 +66,7 @@ h3 {
 }
 
 /*Navbar*/
-#navbar {
+.navbar {
 	padding-bottom: 200px;
 }
 
@@ -90,9 +97,7 @@ h3 {
 }
 
 
-#form {
-	margin-bottom: 0px;
-}
+
 
 @media only screen and (max-width: 600px) {
     .col.s3 {

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer = () =>
-<footer className="page-footer indigo darken-1">
+<footer className="page-footer indigo darken-1 footer">
     <div className="container">
         <div className="row">
         	<div className="col l6 s12">

@@ -69,45 +69,38 @@ class SearchMoviesContainer extends Component {
 
 		return (
 			<div>
-				<nav id="navbar" className="indigo darken-1">
-					<div className="nav-wrapper indigo darken-1">
-						<div className="col s2">
-							<ul id="nav-mobile" className="right hide-on-med-and-down">
-						        <li><a href="/Welcome">Sign Up</a></li>
-						    </ul>
-						</div>
-							<a href="/" className="brand-logo center"><img id="logoWelcome" src={logo} alt="logo" /></a>
-							
+				<nav className="indigo darken-1">
+					<div class="nav-wrapper">
+						<a href="#" class="brand-logo"><img id="logoWelcome" src={logo} alt="logo" /></a>
+						<ul id="nav-mobile" class="right">
+							<li>
+								<form className="" onSubmit={this.handleSignIn}>
+									<div className="row">
+										<div className="input-field col s4">
+											<input className="validate" type="email" name="username" value={this.state.username} onChange={this.handleInputChange}/>
+											<label htmlFor="email">Email</label>
+										</div>
+										<div className="input-field col s4">
+											<input className="validate" type="password" name="loginPassword" value={this.state.loginPassword} onChange={this.handleInputChange}/>
+											<label htmlFor="password">password</label>
+										</div>
+										<input className="waves-effect waves-light indigo lighten-3 indigo-text btn"  id="signiInButton" type="submit" value="Sign In" />
+									</div>
+								</form>
+							</li>
+							<li><a href="/welcome">sign Up</a></li>
+						</ul>
 					</div>
 				</nav>
-				<div id="form" className="row indigo darken-1">
-		        	<form className="col s12" onSubmit={this.handleSignIn}>
-		        		<div className="row">
-		        			
-	      					<div className="input-field col s4">
-								<input className="validate" type="email" name="username" value={this.state.username} onChange={this.handleInputChange}/>
-								<label htmlFor="email">Email</label>
-							</div>
-							<div className="input-field col s4">
-								<input className="validate" type="password" name="loginPassword" value={this.state.loginPassword} onChange={this.handleInputChange}/>
-								<label htmlFor="password">password</label>
-							</div>
-							<input className="waves-effect waves-light indigo lighten-3 indigo-text btn" style={{top: '20px'}} id="signiInButton" type="submit" />
-						</div>
-					</form>
+				<div id="carousel" >					
+					<Carousel showArrows={true} showStatus={false} showIndicators={false} showThumbs={false} centerMode={true} centerSlidePercentage={18} infiniteLoop={true} autoPlay={true}>
+							{this.state.urlImage.map((currentImg, index) => {
+													console.log(currentImg);
+													return <div key={index}><img src={ currentImg } /></div>
+												})
+												}
+					</Carousel>
 				</div>
- 				
-	 				<div id="carousel" className="indigo lighten-3">
-	 					      					
-						<Carousel showArrows={false} showStatus={false} showIndicators={false} showThumbs={false} centerMode={true} centerSlidePercentage={18} infiniteLoop={true} autoPlay={true}>
-							 {this.state.urlImage.map((currentImg, index) => {
-												 		console.log(currentImg);
-												 		return <div key={index}><img src={ currentImg } /></div>
-												 	})
-												 }
-						</Carousel>
-					
-					</div>
 				
 				<Footer />
 			</div>
