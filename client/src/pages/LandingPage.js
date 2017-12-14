@@ -88,7 +88,7 @@ class SearchMoviesContainer extends Component {
 									</div>
 								</form>
 							</li>
-							<li><a href="/welcome">sign Up</a></li>
+							<li><a href="/welcome" className="waves-effect waves-light indigo lighten-3 indigo-text btn">sign Up</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -101,6 +101,55 @@ class SearchMoviesContainer extends Component {
 												}
 					</Carousel>
 				</div>
+				{/* <div className="row">
+					<div className="col s6">
+					<p>Hello</p>
+					</div>
+			        <div className="col s6">
+			        	<div className="card indigo lighten-4" id="welcomeForm">
+			            	<div className="card-content white-text">
+			              		<span className="card-title">Sign Up</span>
+			              		<div className="row">
+									<form onSubmit={this.handleFormSubmit}>
+										<input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleInputChange} />
+										<input type="text" name="lastname" placeholder="Last Name" value={this.state.lastname} onChange={this.handleInputChange} />
+										<input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} />
+										<input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
+										<input type="password" name="checkPassword" placeholder="Password" value={this.state.checkPassword} onChange={this.handleInputChange} />
+
+										<p>
+											<input type="checkbox" id="action" name="genres" value="action" onChange={this.handleCheckChange} />
+											<label htmlFor="action">Action</label>
+										</p>
+										<p>
+											<input type="checkbox" id="comedy" name="genres" value="comedy" onChange={this.handleCheckChange} />
+											<label htmlFor="comedy">Comedy</label>
+										</p>
+										<p>
+											<input type="checkbox" id="adventure" name="genres" value="adventure" onChange={this.handleCheckChange} />
+											<label htmlFor="adventure">Adventure</label>
+										</p>
+										<p>
+											<input type="checkbox" id="horror" name="genres" value="horror" onChange={this.handleCheckChange} />
+											<label htmlFor="horror">Horror</label>
+										</p>
+										<p>
+											<input type="checkbox" id="anime" name="genres" value="anime" onChange={this.handleCheckChange} />
+											<label htmlFor="anime">Anime</label>
+										</p>
+										<p>
+											<input type="checkbox" id="fiction" name="genres" value="fiction" onChange={this.handleCheckChange} />
+											<label htmlFor="fiction">Fiction</label>
+										</p>
+										<input type="submit" />
+									</form>
+								    
+								</div>
+			            	</div>
+			            
+			          </div>
+			        </div>
+			    </div> */}
 				
 				<Footer />
 			</div>
